@@ -1,0 +1,28 @@
+.featureCardsSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7vw 4vw;
+  background-color: #e8e8e8;
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .featureCardsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 750px) {
+  .featureCardsSection {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+

@@ -1,0 +1,63 @@
+.contactSection {
+  padding: 5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contactSection h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.contactSection > p {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.contactLinks a {
+  font-size: 1.1rem;
+  color: #0077b5;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.3s;
+}
+
+.contactLinks a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 3rem;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .contactSection h2 {
+    font-size: 2rem;
+  }
+}
+

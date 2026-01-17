@@ -1,0 +1,46 @@
+[
+  {
+    "author": "Matthew Manela",
+    "role": "Software Engineering Lead",
+    "text": "Charles is a strong engineer who can both drive complex work and requirements (especially work that crosses multiple team ownership boundaries). He has a keen sense on technical debt vs over-architecture and raises important questions to the team to ensure the right tradeoffs are made. […] But probably his strongest ability is in inculcating a healthy team culture.",
+    "imagePath": "/images/testimonials/matthew-manela.webp"
+  },
+  {
+    "author": "Rafi Yagudin",
+    "role": "Senior Software Engineer",
+    "text": "He was never scared to take on large refactors and introduce new technologies into the tech stack. […] Charles was key to ensuring a culture of safety and trust in our team. On weeks where I felt like I was not performing at my greatest, Charles always had my back and helped me recover.",
+    "imagePath": "/images/testimonials/rafi-yagudin.jpg"
+  },
+  {
+    "author": "Mary Wrenn",
+    "role": "Senior Product Manager",
+    "text": "Charles is by far one of the best developers I've ever worked with […] In the past when I've done backlog grooming with teams, it's been a fairly slow and painful meeting […], but he helped to bring so much energy and curiosity to the meetings that encouraged others to do the same. His questions and thoughts were insightful and often related to future-proofing short-term solutions, which served us well in the fast paced environment we worked in. […] His contribution to team morale helped to make this team my favorite that I've ever worked with.",
+    "imagePath": "/images/testimonials/mary-wrenn.jpg"
+  },
+  {
+    "author": "Cody Bonney",
+    "role": "Technical Director",
+    "text": "Charles cares greatly about the quality of his code and the success of his team. He's an excellent collaborator and communicator and he doesn't shy away from asking the hard questions.",
+    "imagePath": "/images/testimonials/cody-bonney.jpg"
+  },
+  {
+    "author": "Nicholas Peceniak",
+    "role": "Senior Software Engineer",
+    "text": "I would say adding Charles to any engineering team would vastly improve the teams performance and morale.",
+    "imagePath": "/images/testimonials/nicholas-peceniak.jpg"
+  },
+  {
+    "author": "David Armentrout",
+    "role": "Product Management Leader",
+    "text": "He has a knack for communicating with design team members at the appropriate level technical depth and he explains technical concepts with clarity and patience.",
+    "imagePath": "/images/testimonials/david-armentrout.jpg"
+  },
+  {
+    "author": "Alex Bowden",
+    "role": "Senior Software Engineer",
+    "text": "I have always found that Charles is my go-to person when I need to solve a professional challenge, especially as it relates to team morale and productivity. He is one of only a handful of individuals I have met in my professional life that places so much emphasis on the happiness of his colleagues as he truly understands how that has an immensely positive impact on overall productivity.",
+    "imagePath": "/images/testimonials/alex-bowden.jpg"
+  }
+]
+
+
