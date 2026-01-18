@@ -1,9 +1,22 @@
 import Image from 'next/image'
 import styles from './LeadingSection.module.css'
+import layoutStyles from './TwoColumnLayout.module.css'
+
+// Button configuration - modify these to update all button instances
+const BUTTON_CONFIG = {
+  learnMore: {
+    href: '/about',
+    text: 'Learn More About Charles'
+  },
+  resume: {
+    href: '/resume.pdf',
+    text: 'Download Resume'
+  }
+}
 
 export default function LeadingSection() {
   return (
-    <section className={styles.leadingSection}>
+    <section className={`${styles.leadingSection} ${layoutStyles.container}`}>
       <div className={styles.leadingContent}>
         <div className={styles.leadingImage}>
           <Image
@@ -13,6 +26,16 @@ export default function LeadingSection() {
             height={600}
             unoptimized
           />
+          
+          {/* Buttons below image - shown between 750px - 1250px */}
+          <div className={styles.ctaButtonsBelowImage}>
+            <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
+              {BUTTON_CONFIG.learnMore.text}
+            </a>
+            <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
+              {BUTTON_CONFIG.resume.text}
+            </a>
+          </div>
         </div>
         <div className={styles.leadingText}>
           <p className={styles.leadingSubtitle}>Meet Charles Plucker, Software Engineer</p>
@@ -29,11 +52,27 @@ export default function LeadingSection() {
           <p>
             If you think I would be a good fit for your teams, please reach out! I'd love to hear about your dreams.
           </p>
+          
+          {/* Buttons inline with text - shown above 1480px */}
+          <div className={styles.ctaButtonsInline}>
+            <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
+              {BUTTON_CONFIG.learnMore.text}
+            </a>
+            <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
+              {BUTTON_CONFIG.resume.text}
+            </a>
+          </div>
         </div>
       </div>
-      <div className={styles.ctaButtons}>
-        <a href="/about" className={styles.ctaButton}>Learn More About Charles</a>
-        <a href="/resume.pdf" className={styles.ctaButton}>Download Resume</a>
+      
+      {/* Buttons below content - shown between 1250px - 1480px */}
+      <div className={styles.ctaButtonsBelow}>
+        <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
+          {BUTTON_CONFIG.learnMore.text}
+        </a>
+        <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
+          {BUTTON_CONFIG.resume.text}
+        </a>
       </div>
     </section>
   )

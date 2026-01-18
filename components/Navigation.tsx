@@ -1,16 +1,41 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrollState, setScrollState] = useState<'top' | 'video' | 'below'>('top')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const heroHeight = window.innerHeight // 100vh
+      
+      if (scrollY < 50) {
+        setScrollState('top')
+      } else if (scrollY < heroHeight - 100) {
+        setScrollState('video')
+      } else {
+        setScrollState('below')
+      }
+    }
+
+    // Check initial position
+    handleScroll()
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll)
+
+    // Cleanup
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${styles[scrollState]}`}>
       <div className={styles.navLeft}>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>

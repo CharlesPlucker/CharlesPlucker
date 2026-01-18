@@ -4,13 +4,51 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-bottom-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* State: At the very top */
+.nav.top {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* State: Scrolling over video section */
+.nav.video {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* State: Below video section - solid white */
+.nav.below {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Text color changes for white background */
+.nav.below .navLeft a,
+.nav.below .brand,
+.nav.below .socialLink {
+  color: #000;
+}
+
+.nav.below .ctaButton {
+  background-color: #1a5f7a;
+  color: #fff;
 }
 
 .navLeft {
@@ -24,7 +62,7 @@
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s ease;
 }
 
 .navLeft a:hover {
@@ -40,6 +78,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  transition: color 0.3s ease;
 }
 
 .brand:hover {
@@ -57,7 +96,7 @@
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s ease;
 }
 
 .socialLink:hover {

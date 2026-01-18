@@ -19,7 +19,7 @@ export default function FeatureCardsSection() {
       />
 
       <FeatureCard
-        title="Values Driven"
+        title="Values-driven"
         description="Our values define who we are. I lead with my own as well as my team's values. By having a clear understanding of what we value, alignment is easeful, motivation increases, and psychological safety gets prioritized. I am kind, honest, hard-working, and pride-driven."
         imagePath="/images/features/values-driven.jpg"
         imageAlt="Mirador Britanico, Patagonia"

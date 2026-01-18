@@ -1,0 +1,80 @@
+/* 
+  ============================================
+  REUSABLE TWO-COLUMN LAYOUT PATTERN
+  ============================================
+  Standard spacing and typography for all two-column sections.
+  Based on the "Meet Charles" (FeatureCard) section standards.
+  
+  HOW TO USE:
+  1. Import this CSS file into your component:
+     import layoutStyles from './TwoColumnLayout.module.css'
+  
+  2. Apply the container class to your section wrapper:
+     <section className={`${styles.yourSection} ${layoutStyles.container}`}>
+  
+  3. For text content, optionally use layoutStyles.textContent for standard sizing
+  
+  STANDARD VALUES:
+  - Desktop gap: 60px
+  - Tablet gap: 40px
+  - Mobile gap: 30px
+  - Text size: 1rem with line-height 1.7
+  - Heading size: 2.5rem (desktop), 2rem (tablet), 1.75rem (mobile)
+  
+  EXAMPLES:
+  - LeadingSection: Uses this pattern for "Leading from the front" section
+  - StopDoingStartBeing: Can be refactored to use this pattern
+  ============================================
+*/
+
+/* Container for two-column layouts */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7vw 4vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Standard text sizing - matches FeatureCard section */
+.textContent p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.textContent h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Tablet: Reduce gap */
+@media (max-width: 1024px) {
+  .container {
+    gap: 40px;
+  }
+  
+  .textContent h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile: Stack to single column */
+@media (max-width: 750px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 10vw 5vw;
+  }
+  
+  .textContent h2 {
+    font-size: 1.75rem;
+  }
+  
+  .textContent p {
+    font-size: 0.95rem;
+  }
+}

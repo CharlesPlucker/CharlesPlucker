@@ -1,0 +1,22 @@
+# Project Rules and Context
+
+## Project Overview
+This is a site conversion project. We are converting an existing live site into a new Next.js-based implementation.
+
+## Key Resources
+- **Original Live Site**: Charles Plucker (https://www.charlesplucker.com or similar)
+- **live-site.html**: Reference HTML from the original/live site
+- **live-site.css**: Reference CSS from the original/live site
+
+## Development Approach
+When implementing new features or components:
+1. **First pass**: Check `live-site.html` and `live-site.css` for how the feature was implemented in the original site
+2. Use the original implementation as a reference for design, layout, and behavior
+3. Adapt the implementation to work with the new Next.js/React architecture
+4. Maintain the visual design and UX from the original while modernizing the code
+
+## Important Notes
+- Always consult the live site references before implementing new features
+- The live site files serve as the source of truth for design decisions
+- We're modernizing the tech stack while preserving the original design intent
+
