@@ -16,6 +16,19 @@
   opacity: 0.8;
 }
 
+/* Hide all browser default video controls */
+.video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
 .controlButton {
   position: fixed;
   bottom: 2rem;

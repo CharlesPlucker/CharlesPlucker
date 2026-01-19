@@ -1,3 +1,5 @@
+/* See styles/globals.css for STANDARD BREAKPOINTS REFERENCE */
+
 .section {
   background-color: #2c3e50;
   padding: 7vw 4vw;
@@ -29,8 +31,8 @@
   align-items: center;
 }
 
-/* At 751px+, top align image and text */
-@media (min-width: 751px) {
+/* BREAKPOINT: 750px (mobile) - At tablet+, top align image and text */
+@media (min-width: 750px) {
   .container {
     align-items: start;
   }
@@ -116,34 +118,84 @@
   margin-right: auto;
 }
 
+/* BREAKPOINT: 750px (tablet) - increase spacing above button */
+@media (min-width: 750px) and (max-width: 1023px) {
+  .ctaButton {
+    margin-top: 2.5rem;
+  }
+}
+
+/* BREAKPOINT: 1250px (desktop-sm) - increase spacing above button */
+@media (min-width: 1250px) {
+  .ctaButton {
+    margin-top: 3.4rem;
+  }
+}
+
 .ctaButton:hover {
   opacity: 0.9;
   text-decoration: none;
 }
 
-/* Button below image - hidden on mobile, shown at 751px+ */
+/* Button below image - hidden on mobile, shown at 750px-1023px, hidden at 1024px+ */
 .ctaButtonBelowImage {
   display: none;
 }
 
-@media (min-width: 751px) {
+/* BREAKPOINT: 750px (mobile) */
+@media (min-width: 750px) {
   .ctaButtonBelowImage {
     display: block;
   }
 }
 
-/* Button below text - shown on mobile, hidden at 751px+ */
+/* BREAKPOINT: 1024px (tablet) */
+@media (min-width: 1024px) {
+  .ctaButtonBelowImage {
+    display: none;
+  }
+}
+
+/* Button below text - shown on mobile (below 750px), hidden at 750px-1249px, shown at 1250px+ */
 .ctaButtonBelowText {
   display: block;
 }
 
-@media (min-width: 751px) {
+/* BREAKPOINT: 750px (mobile) */
+@media (min-width: 750px) {
   .ctaButtonBelowText {
     display: none;
   }
 }
 
-/* Tablet */
+/* BREAKPOINT: 1250px (desktop-sm) */
+@media (min-width: 1250px) {
+  .ctaButtonBelowText {
+    display: block;
+  }
+}
+
+/* Button below section center - hidden by default, shown at 1024px-1249px */
+.ctaButtonBelowSection {
+  display: none;
+  margin-top: 3rem;
+}
+
+/* BREAKPOINT: 1024px (tablet) */
+@media (min-width: 1024px) {
+  .ctaButtonBelowSection {
+    display: block;
+  }
+}
+
+/* BREAKPOINT: 1250px (desktop-sm) */
+@media (min-width: 1250px) {
+  .ctaButtonBelowSection {
+    display: none;
+  }
+}
+
+/* BREAKPOINT: 1024px (tablet) */
 @media (max-width: 1024px) {
   .container {
     gap: 40px;
@@ -154,7 +206,7 @@
   }
 }
 
-/* Mobile */
+/* BREAKPOINT: 750px (mobile) */
 @media (max-width: 750px) {
   .section {
     padding: 10vw 5vw;
