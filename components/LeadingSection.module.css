@@ -6,10 +6,11 @@
   ============================================
   Three states for button positioning:
   
-  1. Above 1480px: Buttons inline with text column
-  2. Between 1024px - 1480px: Buttons centered below section (equal width, side-by-side)
-  3. Below 1024px: Buttons stacked below image
+  1. Above 1250px: Buttons inline with text column
+  2. Between 1150px - 1250px: Buttons centered below section (equal width, side-by-side)
+  3. Below 1150px: Buttons stacked below image
   
+  Note: 1150px is a LOCAL component breakpoint (tablet-lg) not in the global system
   TWEAK THESE VALUES in the media queries below to adjust behavior
   ============================================
 */
@@ -110,7 +111,7 @@
   }
 }
 
-/* Buttons below content and image - not used in current layout */
+/* Buttons below content and image - shown between 1150px - 1250px (tablet-lg) */
 .ctaButtonsBelow {
   display: none;
   gap: 1.5rem;
@@ -120,14 +121,22 @@
   grid-column: 1 / -1; /* Span both columns of parent grid */
 }
 
-/* Add spacing above buttons at small desktop (1250px+) */
-@media (min-width: 1250px) {
+/* Show centered buttons at tablet-lg breakpoint */
+@media (min-width: 1150px) {
   .ctaButtonsBelow {
+    display: flex;
     margin-top: 2rem;
   }
 }
 
-/* Buttons below image - shown below 1250px */
+/* Hide centered buttons when inline buttons appear */
+@media (min-width: 1250px) {
+  .ctaButtonsBelow {
+    display: none;
+  }
+}
+
+/* Buttons below image - shown below 1150px (mobile/tablet) */
 .ctaButtonsBelowImage {
   display: flex;
   flex-direction: column;
@@ -136,7 +145,7 @@
   width: 100%;
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 1150px) {
   .ctaButtonsBelowImage {
     display: none;
   }

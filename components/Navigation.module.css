@@ -42,7 +42,8 @@
 /* Text color changes for white background */
 .nav.below .navLeft a,
 .nav.below .brand,
-.nav.below .socialLink {
+.nav.below .socialLink,
+.nav.below .menuButton {
   color: #000;
 }
 
@@ -97,11 +98,19 @@
   font-weight: 400;
   text-decoration: none;
   transition: opacity 0.3s, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .socialLink:hover {
   opacity: 0.7;
   text-decoration: none;
+}
+
+.socialLink svg {
+  width: 20px;
+  height: 20px;
 }
 
 .ctaButton {
@@ -122,12 +131,21 @@
 
 .menuButton {
   display: none;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  border: none;
   color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-left: auto;
+}
+
+.menuButton:hover {
+  opacity: 0.7;
+}
+
+.menuButton svg {
+  display: block;
 }
 
 .mobileMenu {
@@ -144,6 +162,17 @@
   color: #fff;
 }
 
+.mobileMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileMenuItem svg {
+  width: 20px;
+  height: 20px;
+}
+
 .mobileMenu.open {
   display: flex;
 }
@@ -151,6 +180,7 @@
 @media (max-width: 768px) {
   .nav {
     padding: 1rem 1.5rem;
+    justify-content: flex-start;
   }
 
   .navLeft {
@@ -161,6 +191,7 @@
     position: static;
     transform: none;
     left: auto;
+    margin-right: auto;
   }
 
   .navRight {
