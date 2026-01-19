@@ -1,0 +1,464 @@
+# Charles Plucker Portfolio - AI Assistant Rules
+
+## Project Overview
+
+This is Charles Plucker's personal portfolio website - a "personal anchor on the web" that authentically represents who he is as a human and professional. The site helps potential employers and teams understand if they would be a good fit to work together.
+
+**Core Philosophy:** Charles is "not for everyone, but if a good fit, a great fit" - evidenced by consistently long tenures and strong colleague testimonials.
+
+---
+
+## Content is Sacred
+
+### Voice & Authenticity
+- **ALL text content is Charles's authentic voice** - treat it as authoritative
+- When making decisions about features or design, reference the site content as source of truth
+- Never change the tone, voice, or philosophy expressed in the text
+- The content intentionally filters for cultural fit, not broad appeal
+
+### Key Themes to Honor
+1. **Leading from the front** - Actions over words, embodied leadership
+2. **Courageous communication** - Articulating needs, team dynamics, inefficiencies
+3. **Values-driven** - Psychological safety, alignment, consensus
+4. **Building the machine that builds the machine** - Systems thinking, long-term quality
+5. **Team genius over individual ego** - Bringing out the best in others
+6. **Measurable impact** - Concrete results (25% fewer cancellations, improved CI/CD, etc.)
+
+---
+
+## Technical Stack & Patterns
+
+### Core Technologies
+- **Next.js 16** (Pages Router) - Static export for Cloudflare Pages
+- **React 19** - Functional components only
+- **TypeScript** - Strict mode enabled
+- **CSS Modules** - Component-scoped styling
+
+### Code Style
+
+#### Components
+```typescript
+// ✅ GOOD: Functional component with TypeScript
+interface MyComponentProps {
+  title: string
+  optional?: boolean
+}
+
+export default function MyComponent({ title, optional = false }: MyComponentProps) {
+  return <div>{title}</div>
+}
+```
+
+```typescript
+// ❌ BAD: Class components, default exports at bottom
+class MyComponent extends React.Component { }
+```
+
+#### Styling
+```typescript
+// ✅ GOOD: CSS Modules import
+import styles from './Component.module.css'
+
+<div className={styles.container}>
+```
+
+```typescript
+// ❌ BAD: Inline styles, styled-components, Tailwind
+<div style={{ margin: '20px' }}>
+```
+
+#### File Organization
+- Component files: `ComponentName.tsx`
+- Style files: `ComponentName.module.css`
+- Co-locate related files in `components/` directory
+- Data files in `data/` (JSON format)
+
+### Design System
+
+#### Spacing (Viewport-based)
+```css
+padding: 7vw 4vw;        /* Desktop sections */
+padding: 10vw 5vw;       /* Mobile sections */
+gap: 60px;               /* Desktop grid gap */
+gap: 40px;               /* Tablet grid gap */
+gap: 30px;               /* Mobile grid gap */
+```
+
+#### Breakpoints
+```css
+@media (max-width: 750px)   { /* Mobile */ }
+@media (max-width: 1024px)  { /* Tablet */ }
+@media (min-width: 1250px)  { /* Desktop breakpoint 1 */ }
+@media (min-width: 1480px)  { /* Desktop breakpoint 2 */ }
+```
+
+#### Colors
+```css
+--primary-bg: #253a4b;      /* Dark blue - buttons, accents */
+--primary-hover: #1a2d3b;   /* Darker blue - hover states */
+--text-primary: #000;       /* Black - headings */
+--text-body: #333;          /* Dark gray - body text */
+--text-muted: #666;         /* Gray - secondary/meta text */
+--background: #fff;         /* White - page background */
+```
+
+#### Typography
+```css
+font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, sans-serif;
+font-weight: 300-400;       /* Light to regular, never bold */
+h1, h2: 2.5rem;            /* Desktop headers */
+h1, h2: 1.75rem;           /* Mobile headers */
+body: 1rem - 1.1rem;       /* Body text */
+line-height: 1.6-1.8;      /* Generous line height */
+```
+
+---
+
+## Layout System
+
+This project uses **two different grid systems** depending on layout complexity needs.
+
+### Simple Grid (Default - Use This)
+
+**Location:** `TwoColumnLayout.module.css`
+
+**What it is:** A straightforward CSS Grid with `grid-template-columns: 1fr 1fr` that creates two equal columns on desktop and stacks on mobile.
+
+**Usage:**
+```typescript
+import layoutStyles from './TwoColumnLayout.module.css'
+
+<section className={`${styles.mySection} ${layoutStyles.container}`}>
+  <div>Left column</div>
+  <div>Right column</div>
+</section>
+```
+
+**When to use:**
+- Standard two-column layouts (most sections)
+- Even splits (50/50)
+- Simple content arrangement
+- Default choice for new sections
+
+**Currently used in:**
+- Leading Section (image + text)
+- Stop Doing Start Being section
+- Most content sections
+
+---
+
+### Fluid Grid (Advanced - Use Sparingly)
+
+**Location:** `styles/fluid-grid.css`
+
+**What it is:** A 24-column CSS Grid system (8 columns on mobile) that allows precise positioning using grid coordinates. Inspired by modern editorial design systems.
+
+**Usage:**
+```typescript
+<div className="fluid-engine">
+  <div 
+    className="grid-block"
+    style={{
+      '--mobile-grid-area': '1/2/9/10',
+      '--desktop-grid-area': '1/2/23/14',
+    } as React.CSSProperties}
+  >
+    Content here
+  </div>
+</div>
+```
+
+**When to use:**
+- Complex layouts with overlapping elements
+- Asymmetric columns (60/40, 37.5/50 instead of 50/50)
+- Precise positioning with grid coordinates (e.g., "start at column 15, end at 24")
+- Creative, magazine-style layouts
+- Elements that need z-index layering
+
+**Examples available in:** `examples/LeadingSection-with-fluid-grid.example.tsx`
+
+**Documentation:** 
+- `README-FLUID-GRID.md` - Complete guide
+- `VISUAL-GRID-GUIDE.md` - ASCII diagrams showing the grid
+- `grid-system-analysis.md` - Technical details
+
+---
+
+### Grid Comparison
+
+| Feature | Simple Grid | Fluid Grid |
+|---------|-------------|------------|
+| Complexity | Low | Medium |
+| Column control | 2 columns (50/50) | 24 columns (any ratio) |
+| Positioning | Automatic | Precise (row/col coordinates) |
+| Learning curve | Minimal | Requires understanding grid-area |
+| Best for | Standard layouts | Complex, creative layouts |
+| Maintenance | Easy | More complex |
+| **Use when** | **Most of the time** | Only when needed |
+
+**Default choice:** Stick with simple grid (`TwoColumnLayout.module.css`) unless complexity requires fluid grid.
+
+---
+
+## Content Guidelines
+
+### Writing Style
+- **Clear and direct** - No corporate jargon or buzzwords
+- **Specific and concrete** - Measurable impacts, real examples
+- **Honest and vulnerable** - "I courageously articulate my needs"
+- **Values-forward** - Lead with what matters (team, quality, psychological safety)
+- **Long-form friendly** - Not afraid of multiple paragraphs
+
+### Button Text
+- "Learn More About Charles" (not "Learn More" or "About Me")
+- "Download Resume" (not "View Resume" or "CV")
+- "Get In Touch" (not "Contact" or "Hire Me")
+
+### Headings
+- Use sentence case with periods for emphasis: "Leading from the front."
+- Allow line breaks in headings: "Leading from the front.<br />Embodied."
+- Keep semantic: h1 for page titles, h2 for section titles, h3 for subsections
+
+---
+
+## Image & Media Handling
+
+### Images
+- Use Next.js `<Image>` component with `unoptimized={true}` (required for static export)
+- Feature cards use Patagonia trip photos (Torres Del Paine, Lago Grey, Mirador Britanico)
+- Testimonials have individual photos in `/images/testimonials/`
+- All images should maintain aspect ratio and use `objectFit: 'cover'` when needed
+
+### Video
+- Background video at `/videos/background.mp4` (16MB, intentionally high quality)
+- Set `playbackRate = 0.5` for slow-motion effect
+- Always include `autoPlay`, `loop`, `muted`, `playsInline` attributes
+
+---
+
+## Data Management
+
+### Testimonials
+Located at `data/testimonials.json`:
+```json
+{
+  "author": "Full Name",
+  "role": "Job Title",
+  "text": "Full testimonial text with [...] for truncation",
+  "imagePath": "/images/testimonials/filename.jpg"
+}
+```
+
+### Years of Experience
+Calculate dynamically from graduation date:
+```typescript
+const graduationDate = new Date(2010, 4) // May 2010
+const yearsOfExperience = new Date().getFullYear() - graduationDate.getFullYear()
+```
+
+---
+
+## Component Patterns
+
+### State Management
+- Use React hooks (`useState`, `useEffect`, `useRef`)
+- Keep state local to components
+- No global state management needed for this site
+
+### Navigation States
+The Navigation component has three scroll states:
+- `top`: At page top (< 50px scroll)
+- `video`: Within hero video (< viewport height - 100px)
+- `below`: Below hero section
+
+### Responsive Patterns
+- **Mobile-first**: Write base styles for mobile, enhance for desktop
+- **Progressive enhancement**: Core content accessible on all devices
+- **Touch-friendly**: Minimum 44px touch targets on mobile
+
+---
+
+## Testing
+
+### Current State
+- Basic test file: `data/testimonials.test.ts`
+- No comprehensive test suite (yet)
+
+### Testing Philosophy (when implementing)
+- **Test user-facing behavior**, not implementation details
+- Focus on critical paths: navigation, content display, links
+- Testimonial carousel logic should be tested
+- Form submissions (if added) should be tested
+
+---
+
+## Deployment
+
+### Static Export
+```json
+// next.config.js
+{
+  output: 'export',
+  images: { unoptimized: true },
+  trailingSlash: true
+}
+```
+
+### Build Process
+```bash
+npm run build      # Generates static files in out/
+npm start          # Preview production build locally
+```
+
+### Hosting
+- **Platform:** Cloudflare Pages
+- **Build command:** `npm run build`
+- **Output directory:** `out`
+- **Branch:** `main`
+
+---
+
+## SEO & Discoverability
+
+### Planned Enhancements
+- [ ] Meta tags (title, description, OG tags) per page
+- [ ] JSON-LD structured data (Person, ProfilePage schema)
+- [ ] Generate Q&A dataset for AI recruiting tools
+- [ ] sitemap.xml and robots.txt
+
+### SEO Philosophy
+- **Quality over quantity** - Not optimizing for maximum traffic
+- **Right-fit optimization** - Help the right people find Charles
+- **AI-readable** - Structure content for LLM understanding of fit
+
+---
+
+## Professional Context
+
+### Charles's Background
+- **Title:** Principal Software Engineer
+- **Experience:** 14+ years (graduated May 2010)
+- **Specialties:** Team building, CI/CD, observability, full-stack development
+- **Values:** Psychological safety, long-term quality, consensus-building
+- **Work Style:** High communication, collaborative, systems thinker
+
+### Career Pattern
+- **Long tenures** - Stays with teams/companies for extended periods
+- **Deep impact** - Measurable improvements to systems and culture
+- **Team-focused** - Recommended for improving team morale and performance
+- **Technical + soft skills** - Equally strong in code and collaboration
+
+### What He's Looking For
+- Customer-first products
+- Forward-thinking, self-directed teams
+- Diverse technical challenges
+- Strong team culture and psychological safety
+- **Not a fit for:** Command-and-control environments, quick-win cultures, short-term thinking
+
+---
+
+## Decision-Making Framework
+
+When making choices about this project:
+
+1. **Does it represent Charles authentically?** 
+   - If no, don't do it
+   - If yes, continue
+
+2. **Does it help the right people understand fit?**
+   - Optimize for clarity, not broadness
+   - It's okay if some people are turned off
+
+3. **Is it maintainable long-term?**
+   - Prefer simple over clever
+   - Charles values long-term quality
+
+4. **Does it demonstrate technical competence without showing off?**
+   - Clean, modern stack
+   - Well-organized code
+   - Not over-engineered
+
+5. **Would this impress the kind of team Charles wants to join?**
+   - Teams that value quality, testing, documentation
+   - Teams that care about people and culture
+   - Teams building "machines that build machines"
+
+---
+
+## Common Tasks
+
+### Adding a New Section
+1. Create `ComponentName.tsx` and `ComponentName.module.css` in `components/`
+2. Use functional component pattern with TypeScript
+3. Import and use in relevant page (`pages/index.tsx`, `pages/about.tsx`, etc.)
+4. Consider using `TwoColumnLayout.module.css` for consistent spacing
+5. Test responsive behavior at all breakpoints
+
+### Updating Content
+1. **Read the existing content first** - understand the voice
+2. Match tone: direct, specific, values-forward
+3. Avoid corporate jargon or generic statements
+4. Include concrete examples and measurable impacts when possible
+
+### Adding Documentation
+1. Be comprehensive but not overwhelming
+2. Include "why" along with "how"
+3. Use examples liberally
+4. Consider both humans and AI assistants as audience
+
+---
+
+## What NOT to Do
+
+### ❌ Don't Change the Voice
+- Don't make text more "professional" or corporate
+- Don't remove vulnerability or directness
+- Don't add buzzwords or generic phrasing
+- Don't dilute the specific examples
+
+### ❌ Don't Over-Engineer
+- Don't add state management libraries (Redux, Zustand, etc.)
+- Don't add CSS frameworks (Tailwind, Bootstrap, etc.)
+- Don't add unnecessary dependencies
+- Don't create complex abstractions for simple problems
+
+### ❌ Don't Optimize for Everyone
+- Don't water down the content to appeal to more people
+- Don't remove "controversial" stances (values-driven, consensus-building, etc.)
+- Don't make it generic or safe
+- The site SHOULD filter for fit
+
+### ❌ Don't Break Accessibility
+- Don't use color alone to convey meaning
+- Don't forget alt text on images
+- Don't make touch targets too small
+- Don't prevent keyboard navigation
+
+---
+
+## Questions to Ask
+
+When unsure about a direction:
+
+1. **What does the existing content say?** - Let Charles's voice guide you
+2. **Does this help someone understand fit?** - The site's purpose
+3. **Is this the simplest solution?** - Prefer simple
+4. **Would this impress the right kind of team?** - Quality-focused, people-first
+5. **Can this be maintained long-term?** - Sustainability matters
+
+---
+
+## Success Metrics
+
+This site is successful if:
+
+1. **The right people reach out** - Not maximum volume, but right fit
+2. **Content feels authentic** - Visitors believe they understand Charles
+3. **Technical quality is evident** - Clean code, good performance, attention to detail
+4. **Long-term maintainable** - Easy to update content and make changes
+5. **Reflects actual working style** - Site structure mirrors Charles's values (documented, thoughtful, quality-focused)
+
+---
+
+Remember: This is a personal site representing a real human with specific values and working style. The goal is authentic representation, not maximum appeal. When in doubt, optimize for the right fit, not the broadest fit.
+

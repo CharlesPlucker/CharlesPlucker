@@ -1,9 +1,8 @@
 import styles from './ContactInfo.module.css'
+import { CONTACT_INFO, SOCIAL_LINKS, getYearsOfExperience } from '../data/contact'
 
 export default function ContactInfo() {
-  const graduationDate = new Date(2010, 4) // May 2010 (month is 0-indexed)
-  const now = new Date()
-  const yearsOfExperience = now.getFullYear() - graduationDate.getFullYear()
+  const yearsOfExperience = getYearsOfExperience()
 
   return (
     <section className={styles.contactSection}>
@@ -12,11 +11,11 @@ export default function ContactInfo() {
         I am a communicative and team-focused Principal Software Engineer with over {yearsOfExperience} years of experience. I thrive when focusing on customer-first products that reward forward-thinking and self-direction. My ideal positions leverage my diverse background in technology, and strong soft-skills for team building and customer interaction.
       </p>
       <div className={styles.contactLinks}>
-        <a href="mailto:charles.plucker@gmail.com">charles.plucker@gmail.com</a>
-        <a href="https://www.linkedin.com/in/charles-plucker/" target="_blank" rel="noopener noreferrer">
+        <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
           LinkedIn
         </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer">
           Instagram
         </a>
       </div>

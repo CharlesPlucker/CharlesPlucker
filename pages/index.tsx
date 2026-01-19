@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
 import LeadingSection from '../components/LeadingSection'
@@ -7,12 +8,48 @@ import StopDoingStartBeing from '../components/StopDoingStartBeing'
 import Footer from '../components/Footer'
 
 export default function Home() {
-  const graduationDate = new Date(2010, 4) // May 2010 (month is 0-indexed)
-  const now = new Date()
-  const yearsOfExperience = now.getFullYear() - graduationDate.getFullYear()
+  const [viewportWidth, setViewportWidth] = useState(0)
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setViewportWidth(window.innerWidth)
+    }
+    
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+    
+    return () => window.removeEventListener('resize', updateWidth)
+  }, [])
+
+  const getBreakpointInfo = () => {
+    if (viewportWidth < 750) return 'Mobile (<750px) - Buttons below image (stacked)'
+    if (viewportWidth < 1024) return 'Tablet (750-1023px) - Buttons below image (stacked)'
+    if (viewportWidth < 1250) return 'Tablet+ (1024-1249px) - Buttons centered below section'
+    if (viewportWidth < 1480) return 'Desktop SM (1250-1479px) - Buttons centered below section'
+    return 'Desktop LG (1480px+) - Buttons inline with text'
+  }
 
   return (
     <div>
+      {/* Debug viewport display */}
+      <div style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        color: '#253a4b',
+        padding: '12px 20px',
+        borderRadius: '8px',
+        fontSize: '18px',
+        fontWeight: 600,
+        zIndex: 10000,
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+        fontFamily: 'monospace',
+        maxWidth: '400px'
+      }}>
+        <div>Viewport: {viewportWidth}px</div>
+        <div style={{ fontSize: '14px', marginTop: '4px' }}>{getBreakpointInfo()}</div>
+      </div>
       <Navigation />
       <Hero />
 
@@ -24,22 +61,6 @@ export default function Home() {
 
       <StopDoingStartBeing />
 
-      {/* Contact Section */}
-      <section className="contentSection">
-        <h2>Get In Touch</h2>
-        <p>
-          I am a communicative and team-focused Principal Software Engineer with over {yearsOfExperience} years of experience. I thrive when focusing on customer-first products that reward forward-thinking and self-direction. My ideal positions leverage my diverse background in technology, and strong soft-skills for team building and customer interaction.
-        </p>
-        <p>
-          <a href="mailto:charles.plucker@gmail.com">charles.plucker@gmail.com</a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/charles-plucker/">https://www.linkedin.com/in/charles-plucker/</a>
-        </p>
-        <p>
-          While AI is an incredible tool, the entirety of this website represents my uninterpreted voice alone.
-        </p>
-      </section>
       <Footer />
     </div>
   )

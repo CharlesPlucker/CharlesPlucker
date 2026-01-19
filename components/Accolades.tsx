@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import testimonialsData from '../data/testimonials.json'
 import styles from './Accolades.module.css'
+import { SOCIAL_LINKS } from '../data/contact'
 
 interface Testimonial {
   author: string
@@ -93,7 +94,7 @@ export default function Accolades() {
 
       <div className={styles.linkedinLink}>
         <a 
-          href="https://www.linkedin.com/in/charles-plucker/details/recommendations/" 
+          href={SOCIAL_LINKS.linkedinRecommendations}
           target="_blank" 
           rel="noopener noreferrer"
         >

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import testimonialsData from '../data/testimonials.json'
 import styles from './TestimonialsCarousel.module.css'
+import { SOCIAL_LINKS } from '../data/contact'
 
 interface Testimonial {
   author: string
@@ -56,7 +57,7 @@ export default function TestimonialsCarousel() {
         </div>
         <div className={styles.linkedinLink}>
           <p>
-            <a href="https://www.linkedin.com/in/charles-plucker/" target="_blank" rel="noopener noreferrer">
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
               View 13 LinkedIn Recommendations
             </a>
           </p>
