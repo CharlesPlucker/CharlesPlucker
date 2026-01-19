@@ -73,12 +73,30 @@
   color: #000;
 }
 
-.nav.below .mobileCtaButton {
+.nav.below .mobileMenu .mobileCtaButton {
   background-color: #253a4b;
   color: white;
 }
 
 .nav.below .mobileCtaButton:hover {
+  background-color: #1a2d3b;
+}
+
+/* Mobile menu styles for "top" state */
+.nav.top .mobileMenu {
+  border-top-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav.top .mobileMenu a {
+  color: #000;
+}
+
+.nav.top .mobileMenu .mobileCtaButton {
+  background-color: #253a4b;
+  color: white;
+}
+
+.nav.top .mobileCtaButton:hover {
   background-color: #1a2d3b;
 }
 

@@ -76,11 +76,11 @@
   margin-top: 0;
 }
 
-.leadingSubtitle {
+.leadingText .leadingSubtitle {
   margin-bottom: 1.75rem;
   text-transform: none;
   letter-spacing: 0.01em;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .ctaButtons {
@@ -169,8 +169,8 @@
     font-size: 0.95rem;
   }
 
-  .leadingSubtitle {
-    font-size: 0.95rem;
+  .leadingText .leadingSubtitle {
+    font-size: 1.05rem;
   }
 
   .ctaButtons {

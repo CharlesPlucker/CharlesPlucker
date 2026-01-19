@@ -11,8 +11,12 @@ import styles from './index.module.css'
 
 export default function Home() {
   const [viewportWidth, setViewportWidth] = useState(0)
+  const [showDebug, setShowDebug] = useState(false)
 
   useEffect(() => {
+    // Only show debug on client side to avoid hydration mismatch
+    setShowDebug(config.isDev)
+    
     const updateWidth = () => {
       setViewportWidth(window.innerWidth)
     }
@@ -34,7 +38,7 @@ export default function Home() {
   return (
     <div>
       {/* Debug viewport display - only shown in dev mode */}
-      {config.isDev && (
+      {showDebug && (
         <div className={styles.debugViewport}>
           <div>Viewport: {viewportWidth}px</div>
           <div className={styles.debugBreakpoint}>{getBreakpointInfo()}</div>
