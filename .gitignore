@@ -16,6 +16,9 @@ node_modules/
 # misc
 .DS_Store
 *.pem
+live-site.html
+live-site.css
+copy-assets.sh
 
 # debug
 npm-debug.log*
