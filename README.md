@@ -13,9 +13,9 @@ This is my personal portfolio website, built to represent my professional identi
 - **Framework:** [Next.js](https://nextjs.org/) 16.1.1 (Pages Router)
 - **UI Library:** [React](https://react.dev/) 19.2.3
 - **Language:** [TypeScript](https://www.typescriptlang.org/) 5.9.3
-- **Styling:** CSS Modules with a Squarespace-inspired fluid grid system
-- **Build Output:** Static export (`next export`) for hosting on Cloudflare Pages
-- **Image Handling:** Next.js Image component with `unoptimized: true` for static export compatibility
+- **Styling:** CSS Modules with CSS Grid layouts
+- **Build Output:** Static export for hosting on Cloudflare Pages
+- **Image Handling:** Next.js Image component with `unoptimized: true` for static compatibility
 
 ### Key Dependencies
 
@@ -84,39 +84,27 @@ charlesplucker/
 │   ├── about.tsx       # Testimonials/About page
 │   └── contact.tsx     # Contact information
 ├── styles/
-│   ├── globals.css     # Global styles and typography
-│   └── fluid-grid.css  # Optional Squarespace-inspired grid system
+│   └── globals.css     # Global styles and typography
 ├── data/
 │   └── testimonials.json   # LinkedIn recommendations
-├── public/
-│   ├── images/         # Feature images, testimonials, Patagonia photos
-│   └── videos/         # Background video (16MB, slowed for effect)
-├── examples/           # Reference implementations for fluid grid
-└── docs/               # Grid system documentation (5 files)
+└── public/
+    ├── images/         # Feature images, testimonials, Patagonia photos
+    └── videos/         # Background video (16MB, slowed for effect)
 ```
 
 ---
 
 ## Design Philosophy
 
-### Grid System
+### Layout System
 
-This site uses a **hybrid approach** to layout:
+This site uses CSS Grid for layouts:
 
-1. **Simple Two-Column Grid** (current implementation)
-   - Clean, maintainable
-   - CSS Grid with `1fr 1fr` for most sections
-   - Defined in `TwoColumnLayout.module.css`
-
-2. **Fluid Engine Grid** (documented, optional)
-   - Squarespace-inspired 24-column system
-   - For complex, asymmetric layouts
-   - Fully documented in grid system files
-
-**Read the grid docs:**
-- Start with `README-FLUID-GRID.md` for overview
-- See `VISUAL-GRID-GUIDE.md` for ASCII diagrams
-- Reference `examples/` for implementation
+- **Simple Two-Column Grid**
+  - Clean, maintainable CSS Grid with `1fr 1fr`
+  - Defined in `TwoColumnLayout.module.css`
+  - Used for most sections
+  - Components can also define custom grid layouts when needed (e.g., 3-column for Feature Cards)
 
 ### Styling Approach
 
@@ -124,17 +112,7 @@ This site uses a **hybrid approach** to layout:
 - **Viewport-based spacing** (`vw` units) for fluid layouts
 - **Mobile-first responsive design** with breakpoints at 750px, 1024px, 1250px, 1480px
 - **Typography:** Proxima Nova with fallbacks, light weight (300-400)
-
-### Color Palette
-
-```css
---primary-bg: #253a4b;      /* Dark blue - buttons */
---primary-hover: #1a2d3b;   /* Darker blue - button hover */
---text-primary: #000;       /* Black - headings */
---text-body: #333;          /* Dark gray - body text */
---text-muted: #666;         /* Gray - secondary text */
---white: #fff;              /* White - backgrounds */
-```
+- **Colors:** Dark blue primary (`#253a4b`), black/gray text, white backgrounds
 
 ---
 
@@ -142,30 +120,23 @@ This site uses a **hybrid approach** to layout:
 
 ### Design Tokens
 
-```css
-/* Colors */
---primary: #253a4b;           /* Buttons */
---primary-hover: #1a2d3b;     /* Button hover */
---text: #000;                 /* Headings */
---text-body: #333;            /* Body text */
+**Colors:**
+- Primary: `#253a4b` (buttons, accents)
+- Hover: `#1a2d3b` (button hover)
+- Text: `#000` (headings), `#333` (body), `#666` (muted)
 
-/* Typography */
-font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, sans-serif;
-font-weight: 300-400;         /* Never bold */
-h1, h2: 2.5rem (desktop) / 1.75rem (mobile)
-body: 1.1rem
+**Typography:**
+- Font: Proxima Nova, light weight (300-400)
+- Headings: 2.5rem (desktop) / 1.75rem (mobile)
+- Body: 1.1rem
 
-/* Spacing */
-padding: 7vw 4vw;             /* Desktop sections */
-padding: 10vw 5vw;            /* Mobile sections */
-gap: 60px / 40px / 30px;     /* Desktop / Tablet / Mobile */
+**Spacing:**
+- Desktop sections: `7vw 4vw`
+- Mobile sections: `10vw 5vw`
+- Grid gaps: 60px / 40px / 30px (desktop / tablet / mobile)
 
-/* Breakpoints */
-750px   - Mobile
-1024px  - Tablet
-1250px  - Desktop small
-1480px  - Desktop large
-```
+**Breakpoints:**
+- 750px (Mobile), 1024px (Tablet), 1250px / 1480px (Desktop)
 
 ### Common Patterns
 
@@ -197,13 +168,8 @@ import layoutStyles from './TwoColumnLayout.module.css'
 
 #### Dynamic Years Calculation
 ```typescript
-// Use the centralized helper function
 import { getYearsOfExperience } from '../data/contact'
 const yearsOfExperience = getYearsOfExperience()
-
-// Or manually (old approach - prefer centralized method above):
-const graduationDate = new Date(2010, 4) // May 2010
-const yearsOfExperience = new Date().getFullYear() - graduationDate.getFullYear()
 ```
 
 ### Gotchas & Tips
@@ -218,9 +184,8 @@ const yearsOfExperience = new Date().getFullYear() - graduationDate.getFullYear(
 - Must include: `autoPlay`, `loop`, `muted`, `playsInline`
 
 **Grid System:**
-- Default to `TwoColumnLayout.module.css` for standard layouts
-- Only use `fluid-grid.css` for complex/asymmetric layouts
-- See `.cursorrules` for detailed grid comparison
+- Default to `TwoColumnLayout.module.css` for standard two-column layouts
+- Define custom grid layouts in component CSS modules when needed
 
 **Navigation:**
 - Has 3 scroll states: `top`, `video`, `below`
@@ -389,7 +354,6 @@ I am a **Principal Software Engineer** with over 14 years of experience who:
 - Sitemap and robots.txt
 
 **Content:**
-- Update Instagram link (currently placeholder)
 - Add resume PDF to `/public/`
 
 **Philosophy:** Optimize for helping the *right* people find me, not maximum traffic

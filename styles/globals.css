@@ -27,6 +27,18 @@
  * ============================================================================
  */
 
+:root {
+  /* Color palette */
+  --primary-bg: #253a4b;           /* Dark blue - buttons, accents */
+  --primary-hover: #1a2d3b;        /* Darker blue - hover states */
+  --text-primary: #000;            /* Black - headings */
+  --text-body: #333;               /* Dark gray - body text */
+  --text-muted: #666;              /* Gray - secondary/meta text */
+  --background: #fff;              /* White - page background */
+  --background-light: #f5f5ed;     /* Light beige - alternate sections */
+  --background-gray: #f5f5f5;      /* Light gray - neutral sections */
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
-import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
 import LeadingSection from '../components/LeadingSection'
 import FeatureCardsSection from '../components/FeatureCardsSection'
 import Accolades from '../components/Accolades'
 import StopDoingStartBeing from '../components/StopDoingStartBeing'
-import Footer from '../components/Footer'
 import config from '../config'
 import styles from './index.module.css'
 
@@ -36,7 +34,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <>
       {/* Debug viewport display - only shown in dev mode */}
       {showDebug && (
         <div className={styles.debugViewport}>
@@ -44,7 +42,6 @@ export default function Home() {
           <div className={styles.debugBreakpoint}>{getBreakpointInfo()}</div>
         </div>
       )}
-      <Navigation />
       <Hero />
 
       <LeadingSection />
@@ -54,8 +51,6 @@ export default function Home() {
       <Accolades />
 
       <StopDoingStartBeing />
-
-      <Footer />
-    </div>
+    </>
   )
 }

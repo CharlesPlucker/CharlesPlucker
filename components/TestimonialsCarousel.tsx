@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import testimonialsData from '../data/testimonials.json'
+import Carousel from './Carousel'
 import styles from './TestimonialsCarousel.module.css'
 import { SOCIAL_LINKS } from '../data/contact'
 
@@ -7,54 +7,26 @@ interface Testimonial {
   author: string
   role: string
   text: string
+  imagePath: string
 }
 
 export default function TestimonialsCarousel() {
   const testimonials = testimonialsData as Testimonial[]
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    )
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    )
-  }
-
-  const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className={styles.carousel}>
-      <h2>Accolades</h2>
-      <div className={styles.carouselContainer}>
-        <div className={styles.navigationButtons}>
-          <button onClick={goToPrevious} className={styles.navButton} aria-label="Previous testimonial">
-            Previous
-          </button>
-
-          <div className={styles.testimonial}>
-            <blockquote>
-              <p>{currentTestimonial.text}</p>
-              <footer>
-                <strong>{currentTestimonial.author}</strong> - {currentTestimonial.role}
-              </footer>
-            </blockquote>
-          </div>
-
-          <button onClick={goToNext} className={styles.navButton} aria-label="Next testimonial">
-            Next
-          </button>
-        </div>
-
-        <div className={styles.counter}>
-          <p>
-            Showing {currentIndex + 1} of {testimonials.length}
-          </p>
-        </div>
+    <Carousel
+      items={testimonials}
+      title="Accolades"
+      itemsToShow={1}
+      renderItem={(testimonial: Testimonial) => (
+        <blockquote className={styles.blockquote}>
+          <p>{testimonial.text}</p>
+          <footer>
+            <strong>{testimonial.author}</strong> - {testimonial.role}
+          </footer>
+        </blockquote>
+      )}
+      footerContent={
         <div className={styles.linkedinLink}>
           <p>
             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
@@ -62,8 +34,7 @@ export default function TestimonialsCarousel() {
             </a>
           </p>
         </div>
-      </div>
-    </section>
+      }
+    />
   )
 }
-

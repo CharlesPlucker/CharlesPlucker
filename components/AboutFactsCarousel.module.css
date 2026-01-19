@@ -1,4 +1,12 @@
-.testimonialContent {
+.darkBlueBackground {
+  background-color: #2c3e50;
+}
+
+.darkBlueBackground h2 {
+  color: #fff;
+}
+
+.factContent {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,25 +24,21 @@
   height: 150px;
 }
 
-.testimonialText {
+.factText {
   font-size: 1rem;
   line-height: 1.7;
-  color: #000;
+  color: #fff;
   margin-bottom: 1.5rem;
-  flex: 1;
-}
-
-.author {
-  font-size: 0.95rem;
   font-weight: 400;
-  color: #000;
-  margin-bottom: 0.25rem;
+  text-align: center;
 }
 
-.role {
+.factDetail {
   font-size: 0.9rem;
-  color: #666;
-  margin: 0;
+  color: #e0e0e0;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
 }
 
 @media (max-width: 750px) {
@@ -42,5 +46,12 @@
     width: 120px;
     height: 120px;
   }
-}
 
+  .factText {
+    font-size: 0.95rem;
+  }
+
+  .factDetail {
+    font-size: 0.85rem;
+  }
+}

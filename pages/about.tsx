@@ -1,14 +1,12 @@
-import Navigation from '../components/Navigation'
-import TestimonialsCarousel from '../components/TestimonialsCarousel'
-import Footer from '../components/Footer'
+import WhoIAm from '../components/WhoIAm'
+import AboutFactsCarousel from '../components/AboutFactsCarousel'
 
 export default function About() {
   return (
-    <div>
-      <Navigation />
-      <TestimonialsCarousel />
-      <Footer />
-    </div>
+    <>
+      <WhoIAm />
+      <AboutFactsCarousel />
+    </>
   )
 }
 

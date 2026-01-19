@@ -1,0 +1,53 @@
+/* 
+  ============================================
+  WHO I AM SECTION
+  ============================================
+  Component-specific styles for the Who I Am section.
+  Uses TwoColumnLayout.module.css for base grid structure.
+  ============================================
+*/
+
+.whoIAmSection {
+  background: var(--background-light);
+}
+
+/* Image column */
+.imageColumn {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.profileImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Text column */
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+/* CTA Button positioning */
+.ctaButtonContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 750px) {
+  .ctaButtonContainer {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .profileImage {
+    max-width: 400px;
+  }
+}
+

@@ -147,56 +147,18 @@ import layoutStyles from './TwoColumnLayout.module.css'
 
 ---
 
-### Fluid Grid (Advanced - Use Sparingly)
+### When Custom Grids Are Needed
 
-**Location:** `styles/fluid-grid.css`
+While `TwoColumnLayout.module.css` handles most two-column layouts, some components need custom grid configurations:
 
-**What it is:** A 24-column CSS Grid system (8 columns on mobile) that allows precise positioning using grid coordinates. Inspired by modern editorial design systems.
+**Examples:**
+- **FeatureCardsSection**: Uses a 3-column grid (becomes 2-column on tablet, 1-column on mobile)
+- **Custom asymmetric layouts**: Define grid-template-columns directly in component CSS modules
 
-**Usage:**
-```typescript
-<div className="fluid-engine">
-  <div 
-    className="grid-block"
-    style={{
-      '--mobile-grid-area': '1/2/9/10',
-      '--desktop-grid-area': '1/2/23/14',
-    } as React.CSSProperties}
-  >
-    Content here
-  </div>
-</div>
-```
-
-**When to use:**
-- Complex layouts with overlapping elements
-- Asymmetric columns (60/40, 37.5/50 instead of 50/50)
-- Precise positioning with grid coordinates (e.g., "start at column 15, end at 24")
-- Creative, magazine-style layouts
-- Elements that need z-index layering
-
-**Examples available in:** `examples/LeadingSection-with-fluid-grid.example.tsx`
-
-**Documentation:** 
-- `README-FLUID-GRID.md` - Complete guide
-- `VISUAL-GRID-GUIDE.md` - ASCII diagrams showing the grid
-- `grid-system-analysis.md` - Technical details
-
----
-
-### Grid Comparison
-
-| Feature | Simple Grid | Fluid Grid |
-|---------|-------------|------------|
-| Complexity | Low | Medium |
-| Column control | 2 columns (50/50) | 24 columns (any ratio) |
-| Positioning | Automatic | Precise (row/col coordinates) |
-| Learning curve | Minimal | Requires understanding grid-area |
-| Best for | Standard layouts | Complex, creative layouts |
-| Maintenance | Easy | More complex |
-| **Use when** | **Most of the time** | Only when needed |
-
-**Default choice:** Stick with simple grid (`TwoColumnLayout.module.css`) unless complexity requires fluid grid.
+**Approach:**
+- Start with `TwoColumnLayout.module.css` for standard 50/50 two-column layouts
+- For other needs, define custom CSS Grid in the component's CSS module
+- Keep it simple and maintainable
 
 ---
 
