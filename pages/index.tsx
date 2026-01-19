@@ -6,6 +6,7 @@ import FeatureCardsSection from '../components/FeatureCardsSection'
 import Accolades from '../components/Accolades'
 import StopDoingStartBeing from '../components/StopDoingStartBeing'
 import Footer from '../components/Footer'
+import config from '../config'
 
 export default function Home() {
   const [viewportWidth, setViewportWidth] = useState(0)
@@ -31,25 +32,27 @@ export default function Home() {
 
   return (
     <div>
-      {/* Debug viewport display */}
-      <div style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        color: '#253a4b',
-        padding: '12px 20px',
-        borderRadius: '8px',
-        fontSize: '18px',
-        fontWeight: 600,
-        zIndex: 10000,
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-        fontFamily: 'monospace',
-        maxWidth: '400px'
-      }}>
-        <div>Viewport: {viewportWidth}px</div>
-        <div style={{ fontSize: '14px', marginTop: '4px' }}>{getBreakpointInfo()}</div>
-      </div>
+      {/* Debug viewport display - only shown in dev mode */}
+      {config.isDev && (
+        <div style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          color: '#253a4b',
+          padding: '12px 20px',
+          borderRadius: '8px',
+          fontSize: '18px',
+          fontWeight: 600,
+          zIndex: 10000,
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+          fontFamily: 'monospace',
+          maxWidth: '400px'
+        }}>
+          <div>Viewport: {viewportWidth}px</div>
+          <div style={{ fontSize: '14px', marginTop: '4px' }}>{getBreakpointInfo()}</div>
+        </div>
+      )}
       <Navigation />
       <Hero />
 

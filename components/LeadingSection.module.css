@@ -7,8 +7,8 @@
   Three states for button positioning:
   
   1. Above 1480px: Buttons inline with text column
-  2. Between 1250px - 1480px: Buttons below content & image, centered
-  3. Below 1250px: Buttons below image only
+  2. Between 1024px - 1480px: Buttons centered below section (equal width, side-by-side)
+  3. Below 1024px: Buttons stacked below image
   
   TWEAK THESE VALUES in the media queries below to adjust behavior
   ============================================
@@ -18,6 +18,22 @@
   /* Uses TwoColumnLayout.module.css for container styles */
   position: relative;
   z-index: 10;
+}
+
+.debugViewport {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #253a4b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+  max-width: 400px;
 }
 
 .leadingContent {
@@ -79,20 +95,33 @@
 .ctaButtonsInline {
   display: none;
   gap: 1.5rem;
-  margin-top: 0.75rem;
-  flex-wrap: wrap;
-}
-
-/* Buttons below content and image (shown between 1250px - 1480px) */
-.ctaButtonsBelow {
-  display: none;
-  gap: 1.5rem;
-  margin-top: 0.75rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* Buttons below image (shown below 1250px) */
+.ctaButtonsInline .ctaButton {
+  width: auto;
+}
+
+/* Buttons below content and image (shown between 1024px - 1480px) */
+.ctaButtonsBelow {
+  display: none;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / -1; /* Span both columns of parent grid */
+}
+
+/* Add spacing above buttons at small desktop (1250px+) */
+@media (min-width: 1250px) {
+  .ctaButtonsBelow {
+    margin-top: 2rem;
+  }
+}
+
+/* Buttons below image (shown below 1024px) */
 .ctaButtonsBelowImage {
   display: flex;
   flex-direction: column;
@@ -101,15 +130,22 @@
   width: 100%;
 }
 
-/* STATE 1: Below 1250px - Buttons below image */
+/* STATE 1: Below 1024px - Buttons below image, stacked */
 /* Default state - already showing ctaButtonsBelowImage */
 
-/* STATE 2: Between 1250px - 1480px - Buttons below content */
-@media (min-width: 1250px) {
+/* STATE 2: Between 1024px - 1250px - Buttons centered below section */
+@media (min-width: 1024px) {
   .ctaButtonsBelowImage {
     display: none;
   }
   
+  .ctaButtonsBelow {
+    display: flex;
+  }
+}
+
+/* STATE 3: Between 1250px - 1480px - Keep buttons centered below content */
+@media (min-width: 1250px) {
   .ctaButtonsBelow {
     display: flex;
   }
@@ -137,6 +173,12 @@
   font-weight: 400;
   transition: background-color 0.3s ease;
   text-align: center;
+}
+
+/* Make buttons in centered section equal width */
+.ctaButtonsBelow .ctaButton {
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .ctaButton:hover {

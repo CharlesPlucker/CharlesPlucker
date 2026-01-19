@@ -27,7 +27,7 @@ export default function LeadingSection() {
             unoptimized
           />
           
-          {/* Buttons below image - shown between 750px - 1250px */}
+          {/* Buttons below image - shown below 1024px */}
           <div className={styles.ctaButtonsBelowImage}>
             <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
               {BUTTON_CONFIG.learnMore.text}
@@ -65,7 +65,7 @@ export default function LeadingSection() {
         </div>
       </div>
       
-      {/* Buttons below content - shown between 1250px - 1480px */}
+      {/* Buttons centered below section - shown between 1024px - 1480px */}
       <div className={styles.ctaButtonsBelow}>
         <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
           {BUTTON_CONFIG.learnMore.text}

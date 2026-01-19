@@ -15,7 +15,7 @@ export default function Footer() {
         <div className={styles.aiNote}>
           <p>
             0% of the words were modified by AI—they are my uninterpreted voice alone.<br />
-            100% of this website's code is written with AI.
+            100% of this website's code is written by AI.
           </p>
         </div>
 

@@ -1,3 +1,32 @@
+/*
+ * ============================================================================
+ * STANDARD BREAKPOINTS REFERENCE
+ * ============================================================================
+ * 
+ * This project uses four standard responsive breakpoints.
+ * These values should be used consistently across all components.
+ * 
+ * BREAKPOINT_MOBILE: 750px
+ * BREAKPOINT_TABLET: 1024px
+ * BREAKPOINT_DESKTOP_SM: 1250px
+ * BREAKPOINT_DESKTOP_LG: 1480px
+ * 
+ * Usage in CSS Modules:
+ * 
+ *   @media (max-width: 750px) { }     // Mobile only
+ *   @media (min-width: 750px) { }     // Tablet and up
+ *   @media (min-width: 1024px) { }    // Tablet and up
+ *   @media (min-width: 1250px) { }    // Desktop small and up
+ *   @media (min-width: 1480px) { }    // Desktop large and up
+ * 
+ * When referencing breakpoints in comments, use the format:
+ *   BREAKPOINT: 750px (mobile)
+ * 
+ * See .charles-preferences.md for more details on the ish convention.
+ * 
+ * ============================================================================
+ */
+
 * {
   box-sizing: border-box;
   padding: 0;
