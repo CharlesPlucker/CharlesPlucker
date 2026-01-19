@@ -30,13 +30,6 @@
   object-position: center;
 }
 
-/* When browser is narrow enough, show full video without cropping */
-@media (max-aspect-ratio: 9/16) {
-  .video {
-    object-fit: contain;
-  }
-}
-
 /* Content Overlay */
 .heroContent {
   position: relative;

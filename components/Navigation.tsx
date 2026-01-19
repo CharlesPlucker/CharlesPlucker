@@ -120,7 +120,7 @@ export default function Navigation() {
           </svg>
           <span>LinkedIn</span>
         </a>
-        <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Get In Touch</Link>
+        <Link href="/contact" onClick={() => setIsMenuOpen(false)} className={styles.mobileCtaButton}>Get In Touch</Link>
       </div>
     </nav>
   )
