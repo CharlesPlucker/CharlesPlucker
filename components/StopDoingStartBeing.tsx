@@ -44,7 +44,8 @@ export default function StopDoingStartBeing({
           <CTAButton 
             text={ctaText}
             href={ctaUrl}
-            className={`${styles.ctaButton} ${styles.ctaButtonBelowImage}`}
+            variant="secondary"
+            className={styles.ctaButtonBelowImage}
           />
         </div>
         
@@ -72,7 +73,8 @@ export default function StopDoingStartBeing({
           <CTAButton 
             text={ctaText}
             href={ctaUrl}
-            className={`${styles.ctaButton} ${styles.ctaButtonBelowText}`}
+            variant="secondary"
+            className={styles.ctaButtonBelowText}
           />
         </div>
       </div>
@@ -81,7 +83,8 @@ export default function StopDoingStartBeing({
       <CTAButton 
         text={ctaText}
         href={ctaUrl}
-        className={`${styles.ctaButton} ${styles.ctaButtonBelowSection}`}
+        variant="secondary"
+        className={styles.ctaButtonBelowSection}
       />
     </section>
   )

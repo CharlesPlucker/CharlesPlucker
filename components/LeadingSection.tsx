@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './LeadingSection.module.css'
 import layoutStyles from './TwoColumnLayout.module.css'
+import CTAButton from './CTAButton'
 
 // Button configuration - modify these to update all button instances
 const BUTTON_CONFIG = {
@@ -29,12 +30,16 @@ export default function LeadingSection() {
           
           {/* Buttons below image - shown below 1024px */}
           <div className={styles.ctaButtonsBelowImage}>
-            <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
-              {BUTTON_CONFIG.learnMore.text}
-            </a>
-            <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
-              {BUTTON_CONFIG.resume.text}
-            </a>
+            <CTAButton 
+              text={BUTTON_CONFIG.learnMore.text}
+              href={BUTTON_CONFIG.learnMore.href}
+              variant="primary"
+            />
+            <CTAButton 
+              text={BUTTON_CONFIG.resume.text}
+              href={BUTTON_CONFIG.resume.href}
+              variant="primary"
+            />
           </div>
         </div>
         <div className={styles.leadingText}>
@@ -55,24 +60,32 @@ export default function LeadingSection() {
           
           {/* Buttons inline with text - shown above 1480px */}
           <div className={styles.ctaButtonsInline}>
-            <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
-              {BUTTON_CONFIG.learnMore.text}
-            </a>
-            <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
-              {BUTTON_CONFIG.resume.text}
-            </a>
+            <CTAButton 
+              text={BUTTON_CONFIG.learnMore.text}
+              href={BUTTON_CONFIG.learnMore.href}
+              variant="primary"
+            />
+            <CTAButton 
+              text={BUTTON_CONFIG.resume.text}
+              href={BUTTON_CONFIG.resume.href}
+              variant="primary"
+            />
           </div>
         </div>
       </div>
       
       {/* Buttons centered below section - shown between 1024px - 1480px */}
       <div className={styles.ctaButtonsBelow}>
-        <a href={BUTTON_CONFIG.learnMore.href} className={styles.ctaButton}>
-          {BUTTON_CONFIG.learnMore.text}
-        </a>
-        <a href={BUTTON_CONFIG.resume.href} className={styles.ctaButton}>
-          {BUTTON_CONFIG.resume.text}
-        </a>
+        <CTAButton 
+          text={BUTTON_CONFIG.learnMore.text}
+          href={BUTTON_CONFIG.learnMore.href}
+          variant="primary"
+        />
+        <CTAButton 
+          text={BUTTON_CONFIG.resume.text}
+          href={BUTTON_CONFIG.resume.href}
+          variant="primary"
+        />
       </div>
     </section>
   )

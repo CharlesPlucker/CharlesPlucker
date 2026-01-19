@@ -151,30 +151,7 @@
   }
 }
 
-/* All button sets visible for debugging - removed media queries */
-
-.ctaButton {
-  display: inline-block;
-  padding: 1.125rem 2.5rem;
-  background-color: #253a4b;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: background-color 0.3s ease;
-  text-align: center;
-}
-
-/* Make buttons in centered section equal width */
-.ctaButtonsBelow .ctaButton {
-  width: 300px;
-  flex-shrink: 0;
-}
-
-.ctaButton:hover {
-  background-color: #1a2d3b;
-}
+/* Layout styles - button appearance comes from CTAButton.module.css */
 
 /* Responsive typography from TwoColumnLayout */
 @media (max-width: 1024px) {

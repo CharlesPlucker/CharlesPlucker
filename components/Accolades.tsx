@@ -3,6 +3,7 @@ import Image from 'next/image'
 import testimonialsData from '../data/testimonials.json'
 import styles from './Accolades.module.css'
 import { SOCIAL_LINKS } from '../data/contact'
+import CTAButton from './CTAButton'
 
 interface Testimonial {
   author: string
@@ -93,13 +94,12 @@ export default function Accolades() {
       </div>
 
       <div className={styles.linkedinLink}>
-        <a 
+        <CTAButton 
+          text="View 13 LinkedIn Recommendations"
           href={SOCIAL_LINKS.linkedinRecommendations}
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          View 13 LinkedIn Recommendations
-        </a>
+          variant="primary"
+          external
+        />
       </div>
     </section>
   )

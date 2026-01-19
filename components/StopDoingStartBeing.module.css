@@ -86,51 +86,28 @@
   color: #fff;
 }
 
-.ctaButton {
-  display: block;
-  padding: 1.125rem 2.5rem;
-  background-color: #fff;
-  color: #2c3e50;
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: opacity 0.3s ease;
-  margin-top: 1rem;
+/* Button positioning overrides - button appearance comes from CTAButton.module.css */
+
+/* All button positioning classes: fixed width, centered */
+.ctaButtonBelowImage,
+.ctaButtonBelowText,
+.ctaButtonBelowSection {
   width: 250px;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* BREAKPOINT: 750px (tablet) - increase spacing above button */
-@media (min-width: 750px) and (max-width: 1023px) {
-  .ctaButton {
-    margin-top: 2.5rem;
-  }
-}
-
-/* BREAKPOINT: 1250px (desktop-sm) - increase spacing above button */
-@media (min-width: 1250px) {
-  .ctaButton {
-    margin-top: 3.4rem;
-  }
-}
-
-.ctaButton:hover {
-  opacity: 0.9;
-  text-decoration: none;
 }
 
 /* Button below image - hidden on mobile, shown at 750px-1023px, hidden at 1024px+ */
 .ctaButtonBelowImage {
   display: none;
+  margin-top: 1rem;
 }
 
 /* BREAKPOINT: 750px (mobile) */
 @media (min-width: 750px) {
   .ctaButtonBelowImage {
     display: block;
+    margin-top: 2.5rem;
   }
 }
 
@@ -144,6 +121,7 @@
 /* Button below text - shown on mobile (below 750px), hidden at 750px-1249px, shown at 1250px+ */
 .ctaButtonBelowText {
   display: block;
+  margin-top: 1rem;
 }
 
 /* BREAKPOINT: 750px (mobile) */
@@ -157,6 +135,7 @@
 @media (min-width: 1250px) {
   .ctaButtonBelowText {
     display: block;
+    margin-top: 3.4rem;
   }
 }
 

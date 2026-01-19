@@ -140,23 +140,6 @@
   margin-top: 3rem;
 }
 
-.linkedinLink a {
-  display: inline-block;
-  padding: 1.125rem 2.5rem;
-  background-color: #253a4b;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: background-color 0.3s ease;
-}
-
-.linkedinLink a:hover {
-  background-color: #1a2d3b;
-  text-decoration: none;
-}
-
 /* Tablet: 2 columns */
 @media (max-width: 1024px) {
   .testimonialGrid {
