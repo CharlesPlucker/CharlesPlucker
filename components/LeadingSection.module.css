@@ -91,7 +91,7 @@
   /* background-color: #da77f2; Bright purple - CTA buttons container */
 }
 
-/* Buttons inline with text (shown above 1480px) */
+/* Buttons inline with text - shown at 1250px+ */
 .ctaButtonsInline {
   display: none;
   gap: 1.5rem;
@@ -104,7 +104,13 @@
   width: auto;
 }
 
-/* Buttons below content and image (shown between 1024px - 1480px) */
+@media (min-width: 1250px) {
+  .ctaButtonsInline {
+    display: flex;
+  }
+}
+
+/* Buttons below content and image - not used in current layout */
 .ctaButtonsBelow {
   display: none;
   gap: 1.5rem;
@@ -121,7 +127,7 @@
   }
 }
 
-/* Buttons below image (shown below 1024px) */
+/* Buttons below image - shown below 1250px */
 .ctaButtonsBelowImage {
   display: flex;
   flex-direction: column;
@@ -130,37 +136,13 @@
   width: 100%;
 }
 
-/* STATE 1: Below 1024px - Buttons below image, stacked */
-/* Default state - already showing ctaButtonsBelowImage */
-
-/* STATE 2: Between 1024px - 1250px - Buttons centered below section */
-@media (min-width: 1024px) {
+@media (min-width: 1250px) {
   .ctaButtonsBelowImage {
     display: none;
   }
-  
-  .ctaButtonsBelow {
-    display: flex;
-  }
 }
 
-/* STATE 3: Between 1250px - 1480px - Keep buttons centered below content */
-@media (min-width: 1250px) {
-  .ctaButtonsBelow {
-    display: flex;
-  }
-}
-
-/* STATE 3: Above 1480px - Buttons inline with text */
-@media (min-width: 1480px) {
-  .ctaButtonsBelow {
-    display: none;
-  }
-  
-  .ctaButtonsInline {
-    display: flex;
-  }
-}
+/* All button sets visible for debugging - removed media queries */
 
 .ctaButton {
   display: inline-block;
@@ -219,5 +201,6 @@
 }
 
 /* Remove old breakpoint styles - now handled by TwoColumnLayout */
+
 
 
