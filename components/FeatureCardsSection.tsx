@@ -2,11 +2,15 @@ import FeatureCard from './FeatureCard'
 import styles from './FeatureCardsSection.module.css'
 
 export default function FeatureCardsSection() {
+  const graduationDate = new Date(2010, 4) // May 2010 (month is 0-indexed)
+  const now = new Date()
+  const yearsOfExperience = now.getFullYear() - graduationDate.getFullYear()
+
   return (
     <section className={styles.featureCardsSection}>
       <FeatureCard
         title="Technical Leader"
-        description="I have over 13 years of experience working on high output teams making products that delight our customers. My passion lies in being part of a high functioning team that prioritizes long term quality over quick wins. I like to emphasize full test coverages, observability, and leading Sprint Planning. I believe that being invested in the product cycle early ensures that we build the Right Product for our customers and leads to increased long term velocity."
+        description={`I have over ${yearsOfExperience} years of experience working on high output teams making products that delight our customers. My passion lies in being part of a high functioning team that prioritizes long term quality over quick wins. I like to emphasize full test coverages, observability, and leading Sprint Planning. I believe that being invested in the product cycle early ensures that we build the Right Product for our customers and leads to increased long term velocity.`}
         imagePath="/images/features/technical-leader.jpg"
         imageAlt="Torres Del Paine, Patagonia"
       />

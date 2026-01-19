@@ -18,5 +18,4 @@ When implementing new features or components:
 ## Important Notes
 - Always consult the live site references before implementing new features
 - The live site files serve as the source of truth for design decisions
-- We're modernizing the tech stack while preserving the original design intent
-
+- We're modernizing the tech stack

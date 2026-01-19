@@ -5,6 +5,21 @@
   z-index: 10;
 }
 
+.debugViewport {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #2c3e50;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -12,6 +27,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+}
+
+/* At 751px+, top align image and text */
+@media (min-width: 751px) {
+  .container {
+    align-items: start;
+  }
 }
 
 .imageColumn {
@@ -94,13 +116,31 @@
   margin-right: auto;
 }
 
-.contentColumn > a {
-  display: block;
-}
-
 .ctaButton:hover {
   opacity: 0.9;
   text-decoration: none;
+}
+
+/* Button below image - hidden on mobile, shown at 751px+ */
+.ctaButtonBelowImage {
+  display: none;
+}
+
+@media (min-width: 751px) {
+  .ctaButtonBelowImage {
+    display: block;
+  }
+}
+
+/* Button below text - shown on mobile, hidden at 751px+ */
+.ctaButtonBelowText {
+  display: block;
+}
+
+@media (min-width: 751px) {
+  .ctaButtonBelowText {
+    display: none;
+  }
 }
 
 /* Tablet */

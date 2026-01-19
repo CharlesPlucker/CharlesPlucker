@@ -1,7 +1,7 @@
 .featureCardsSection {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 7vw 4vw;
+  padding: 7vw 4vw 3vw 4vw;
   background-color: #e8e8e8;
   position: relative;
   z-index: 10;

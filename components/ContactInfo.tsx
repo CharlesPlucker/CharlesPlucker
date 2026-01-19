@@ -1,11 +1,15 @@
 import styles from './ContactInfo.module.css'
 
 export default function ContactInfo() {
+  const graduationDate = new Date(2010, 4) // May 2010 (month is 0-indexed)
+  const now = new Date()
+  const yearsOfExperience = now.getFullYear() - graduationDate.getFullYear()
+
   return (
     <section className={styles.contactSection}>
       <h2>Get In Touch</h2>
       <p>
-        I am a communicative and team-focused Principal Software Engineer with over 13 years of experience. I thrive when focusing on customer-first products that reward forward-thinking and self-direction. My ideal positions leverage my diverse background in technology, and strong soft-skills for team building and customer interaction.
+        I am a communicative and team-focused Principal Software Engineer with over {yearsOfExperience} years of experience. I thrive when focusing on customer-first products that reward forward-thinking and self-direction. My ideal positions leverage my diverse background in technology, and strong soft-skills for team building and customer interaction.
       </p>
       <div className={styles.contactLinks}>
         <a href="mailto:charles.plucker@gmail.com">charles.plucker@gmail.com</a>

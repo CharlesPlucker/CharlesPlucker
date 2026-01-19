@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import styles from './StopDoingStartBeing.module.css'
 
 function TextHighlight({ children }: { children: React.ReactNode }) {
@@ -18,9 +19,33 @@ function TextHighlight({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default function StopDoingStartBeing() {
+interface StopDoingStartBeingProps {
+  ctaText?: string
+  ctaUrl?: string
+}
+
+export default function StopDoingStartBeing({ 
+  ctaText = 'Get In Touch',
+  ctaUrl = '/contact'
+}: StopDoingStartBeingProps) {
+  const [viewportWidth, setViewportWidth] = useState(0)
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setViewportWidth(window.innerWidth)
+    }
+    
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+    
+    return () => window.removeEventListener('resize', updateWidth)
+  }, [])
+
   return (
     <section className={styles.section}>
+      <div className={styles.debugViewport}>
+        Viewport Width: {viewportWidth}px
+      </div>
       <div className={styles.container}>
         <div className={styles.imageColumn}>
           <Image
@@ -31,6 +56,10 @@ export default function StopDoingStartBeing() {
             className={styles.image}
             unoptimized
           />
+          {/* Button below image - shows at 751px+ */}
+          <a href={ctaUrl} className={`${styles.ctaButton} ${styles.ctaButtonBelowImage}`}>
+            {ctaText}
+          </a>
         </div>
         
         <div className={styles.contentColumn}>
@@ -53,7 +82,10 @@ export default function StopDoingStartBeing() {
             <li>I am proud of my written and spoken communications.</li>
           </ul>
           
-          <a href="/contact" className={styles.ctaButton}>Get In Touch</a>
+          {/* Button below text - shows at mobile (below 751px) */}
+          <a href={ctaUrl} className={`${styles.ctaButton} ${styles.ctaButtonBelowText}`}>
+            {ctaText}
+          </a>
         </div>
       </div>
     </section>
