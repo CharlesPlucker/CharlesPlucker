@@ -32,7 +32,10 @@ const column3Photos: Photo[] = [
   { src: '/images/travel/blue-lagoon-iceland.jpg', alt: 'Blue Lagoon, Iceland' },
   { src: '/images/travel/ashcroft-wilderness-colorado.jpg', alt: 'Ashcroft Wilderness, Colorado' },
   { src: '/images/travel/rotorua-new-zealand-2.jpg', alt: 'Rotorua, New Zealand' },
-  { src: '/images/travel/great-sand-dunes-colorado.jpg', alt: 'Great Sand Dunes National Park, Colorado' },
+  {
+    src: '/images/travel/great-sand-dunes-colorado.jpg',
+    alt: 'Great Sand Dunes National Park, Colorado',
+  },
   { src: '/images/travel/madeira-portugal.jpg', alt: 'Madeira, Portugal' },
   { src: '/images/travel/torres-de-paine-chile.jpg', alt: 'Torres de Paine, Chile' },
 ]
@@ -44,7 +47,7 @@ export default function TravelGallery() {
     <section className={styles.travelGallerySection}>
       <div className={styles.container}>
         <h2 className={styles.heading}>An Avid Traveler</h2>
-        
+
         <div className={styles.gallery}>
           {columns.map((columnPhotos, columnIndex) => (
             <div key={columnIndex} className={styles.column}>
@@ -68,4 +71,3 @@ export default function TravelGallery() {
     </section>
   )
 }
-

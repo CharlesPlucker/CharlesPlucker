@@ -24,18 +24,14 @@ export default function Carousel<T>({
   const goToPrevious = () => {
     if (isTransitioning) return
     setIsTransitioning(true)
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    )
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? items.length - 1 : prevIndex - 1))
     setTimeout(() => setIsTransitioning(false), 500)
   }
 
   const goToNext = () => {
     if (isTransitioning) return
     setIsTransitioning(true)
-    setCurrentIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    )
+    setCurrentIndex((prevIndex) => (prevIndex === items.length - 1 ? 0 : prevIndex + 1))
     setTimeout(() => setIsTransitioning(false), 500)
   }
 
@@ -44,9 +40,9 @@ export default function Carousel<T>({
     const visible = []
     for (let i = 0; i < itemsToShow; i++) {
       const index = (currentIndex + i) % items.length
-      visible.push({ 
-        item: items[index], 
-        uniqueKey: `${currentIndex}-${i}` 
+      visible.push({
+        item: items[index],
+        uniqueKey: `${currentIndex}-${i}`,
       })
     }
     return visible
@@ -57,10 +53,10 @@ export default function Carousel<T>({
   return (
     <section className={`${styles.carousel} ${className}`}>
       {title && <h2>{title}</h2>}
-      
+
       <div className={styles.carouselContainer}>
-        <button 
-          onClick={goToPrevious} 
+        <button
+          onClick={goToPrevious}
           className={styles.navButton}
           aria-label="Previous item"
           disabled={isTransitioning}
@@ -69,10 +65,10 @@ export default function Carousel<T>({
         </button>
 
         <div className={styles.itemWrapper}>
-          <div 
+          <div
             className={`${styles.itemGrid} ${isTransitioning ? styles.transitioning : ''}`}
-            style={{ 
-              gridTemplateColumns: `repeat(${itemsToShow}, 1fr)` 
+            style={{
+              gridTemplateColumns: `repeat(${itemsToShow}, 1fr)`,
             }}
           >
             {visibleItems.map(({ item, uniqueKey }) => (
@@ -83,8 +79,8 @@ export default function Carousel<T>({
           </div>
         </div>
 
-        <button 
-          onClick={goToNext} 
+        <button
+          onClick={goToNext}
           className={styles.navButton}
           aria-label="Next item"
           disabled={isTransitioning}
@@ -93,12 +89,7 @@ export default function Carousel<T>({
         </button>
       </div>
 
-      {footerContent && (
-        <div className={styles.footer}>
-          {footerContent}
-        </div>
-      )}
+      {footerContent && <div className={styles.footer}>{footerContent}</div>}
     </section>
   )
 }
-

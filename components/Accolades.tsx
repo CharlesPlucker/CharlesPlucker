@@ -38,7 +38,7 @@ export default function Accolades() {
         </div>
       )}
       footerContent={
-        <CTAButton 
+        <CTAButton
           text="View 13 LinkedIn Recommendations"
           href={SOCIAL_LINKS.linkedinRecommendations}
           variant="primary"
@@ -48,4 +48,3 @@ export default function Accolades() {
     />
   )
 }
-

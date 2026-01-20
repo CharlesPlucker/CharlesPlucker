@@ -14,19 +14,19 @@ function getIsDev(): boolean {
   }
 
   const hostname = window.location.hostname
-  
+
   // localhost is always dev
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
     return true
   }
-  
+
   // Check if hostname starts with a number (Cloudflare Pages preview URLs)
   // e.g., 051932d1.charlesplucker.pages.dev
   const firstChar = hostname.charAt(0)
   if (/\d/.test(firstChar)) {
     return true
   }
-  
+
   // Otherwise, it's production
   return false
 }
@@ -43,4 +43,3 @@ export const config = {
 }
 
 export default config
-

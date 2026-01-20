@@ -1,9 +1,9 @@
 /**
  * Centralized contact information and social links for Charles Plucker
- * 
+ *
  * This file serves as the single source of truth for all contact details,
  * social media links, and professional information used throughout the site.
- * 
+ *
  * Usage: Import and use these constants in any component that needs contact info.
  */
 
@@ -27,4 +27,3 @@ export function getYearsOfExperience(): number {
   const now = new Date()
   return now.getFullYear() - graduationDate.getFullYear()
 }
-

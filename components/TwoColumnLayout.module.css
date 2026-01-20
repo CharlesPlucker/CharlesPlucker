@@ -56,7 +56,7 @@
   .container {
     gap: 40px;
   }
-  
+
   .textContent h2 {
     font-size: 2rem;
   }
@@ -69,11 +69,11 @@
     gap: 30px;
     padding: 10vw 5vw;
   }
-  
+
   .textContent h2 {
     font-size: 1.75rem;
   }
-  
+
   .textContent p {
     font-size: 0.95rem;
   }

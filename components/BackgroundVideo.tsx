@@ -35,10 +35,13 @@ export default function BackgroundVideo() {
         controls={false}
         className={styles.video}
       />
-      <button onClick={togglePlayPause} className={styles.controlButton} aria-label={isPlaying ? 'Pause Background' : 'Play Background'}>
+      <button
+        onClick={togglePlayPause}
+        className={styles.controlButton}
+        aria-label={isPlaying ? 'Pause Background' : 'Play Background'}
+      >
         {isPlaying ? 'Pause Background' : 'Play Background'}
       </button>
     </div>
   )
 }
-

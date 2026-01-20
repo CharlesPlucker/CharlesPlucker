@@ -164,7 +164,7 @@
   .container {
     gap: 40px;
   }
-  
+
   .contentColumn h2 {
     font-size: 2rem;
   }
@@ -175,22 +175,21 @@
   .section {
     padding: 10vw 5vw;
   }
-  
+
   .container {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .imageColumn {
     order: -1;
   }
-  
+
   .contentColumn h2 {
     font-size: 1.75rem;
   }
-  
+
   .contentColumn p {
     font-size: 0.95rem;
   }
 }
-

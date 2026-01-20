@@ -14,14 +14,14 @@ export default function Home() {
   useEffect(() => {
     // Only show debug on client side to avoid hydration mismatch
     setShowDebug(config.isDev)
-    
+
     const updateWidth = () => {
       setViewportWidth(window.innerWidth)
     }
-    
+
     updateWidth()
     window.addEventListener('resize', updateWidth)
-    
+
     return () => window.removeEventListener('resize', updateWidth)
   }, [])
 

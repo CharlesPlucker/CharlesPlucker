@@ -31,9 +31,7 @@ export default function AboutFactsCarousel() {
             />
           </div>
           <p className={styles.factText}>{fact.fact}</p>
-          {fact.detail && (
-            <footer className={styles.factDetail}>{fact.detail}</footer>
-          )}
+          {fact.detail && <footer className={styles.factDetail}>{fact.detail}</footer>}
         </div>
       )}
     />

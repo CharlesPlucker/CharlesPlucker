@@ -164,7 +164,7 @@
   .leadingText h2 {
     font-size: 1.75rem;
   }
-  
+
   .leadingText p {
     font-size: 0.95rem;
   }
@@ -180,13 +180,10 @@
   .ctaButton {
     width: 100%;
   }
-  
+
   .leadingImage {
     order: -1; /* Image appears above text on mobile */
   }
 }
 
 /* Remove old breakpoint styles - now handled by TwoColumnLayout */
-
-
-

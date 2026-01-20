@@ -8,7 +8,10 @@ export default function ContactInfo() {
     <section className={styles.contactSection}>
       <h2>Get In Touch</h2>
       <p>
-        I am a communicative and team-focused Principal Software Engineer with over {yearsOfExperience} years of experience. I thrive when focusing on customer-first products that reward forward-thinking and self-direction. My ideal positions leverage my diverse background in technology, and strong soft-skills for team building and customer interaction.
+        I am a communicative and team-focused Principal Software Engineer with over{' '}
+        {yearsOfExperience} years of experience. I thrive when focusing on customer-first products
+        that reward forward-thinking and self-direction. My ideal positions leverage my diverse
+        background in technology, and strong soft-skills for team building and customer interaction.
       </p>
       <div className={styles.contactLinks}>
         <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
@@ -20,9 +23,9 @@ export default function ContactInfo() {
         </a>
       </div>
       <p className={styles.disclaimer}>
-        While AI is an incredible tool, the entirety of this website represents my uninterpreted voice alone.
+        While AI is an incredible tool, the entirety of this website represents my uninterpreted
+        voice alone.
       </p>
     </section>
   )
 }
-

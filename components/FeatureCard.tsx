@@ -8,22 +8,11 @@ interface FeatureCardProps {
   imageAlt: string
 }
 
-export default function FeatureCard({
-  title,
-  description,
-  imagePath,
-  imageAlt,
-}: FeatureCardProps) {
+export default function FeatureCard({ title, description, imagePath, imageAlt }: FeatureCardProps) {
   return (
     <div className={styles.featureCard}>
       <div className={styles.imageContainer}>
-        <Image
-          src={imagePath}
-          alt={imageAlt}
-          width={800}
-          height={600}
-          unoptimized
-        />
+        <Image src={imagePath} alt={imageAlt} width={800} height={600} unoptimized />
       </div>
       <div className={styles.content}>
         <h3>{title}</h3>
@@ -32,4 +21,3 @@ export default function FeatureCard({
     </div>
   )
 }
-
