@@ -9,8 +9,6 @@
 
 export const CONTACT_INFO = {
   email: 'charles.plucker@gmail.com',
-  graduationYear: 2010,
-  graduationMonth: 4, // May (0-indexed, so 4 = May)
 } as const
 
 export const SOCIAL_LINKS = {
@@ -20,10 +18,25 @@ export const SOCIAL_LINKS = {
 } as const
 
 /**
- * Helper function to calculate years of experience dynamically
+ * Calculate years of experience aof Charles Plucker
+ * Career start date: July 1st, 2010
+ * Returns complete years only (rounds down)
  */
 export function getYearsOfExperience(): number {
-  const graduationDate = new Date(CONTACT_INFO.graduationYear, CONTACT_INFO.graduationMonth)
+  // Career started July 1st, 2010
+  const careerStartDate = new Date(2010, 6, 1) // Month is 0-indexed (6 = July)
   const now = new Date()
-  return now.getFullYear() - graduationDate.getFullYear()
+  
+  // Calculate full years (rounding down)
+  let years = now.getFullYear() - careerStartDate.getFullYear()
+  
+  // If we haven't reached the anniversary date this year, subtract one year
+  if (
+    now.getMonth() < careerStartDate.getMonth() ||
+    (now.getMonth() === careerStartDate.getMonth() && now.getDate() < careerStartDate.getDate())
+  ) {
+    years--
+  }
+  
+  return years
 }

@@ -91,14 +91,14 @@
 .nav.below .ctaButton,
 .nav.about .ctaButton,
 .nav.contact .ctaButton {
-  background-color: #1a5f7a;
+  background-color: #253a4b;
   color: #fff;
 }
 
 .nav.below .ctaButton:hover,
 .nav.about .ctaButton:hover,
 .nav.contact .ctaButton:hover {
-  background-color: #2a7fa0;
+  background-color: #1a2d3b;
 }
 
 .nav.below .mobileMenu,
@@ -210,7 +210,7 @@
 }
 
 .ctaButton {
-  background-color: #1a5f7a;
+  background-color: #253a4b;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
@@ -221,7 +221,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #2a7fa0;
+  background-color: #1a2d3b;
   text-decoration: none;
 }
 
