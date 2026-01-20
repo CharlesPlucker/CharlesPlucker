@@ -4,12 +4,13 @@ import Footer from './Footer'
 
 interface LayoutProps {
   children: ReactNode
+  navTheme?: 'homepage' | 'about' | 'contact'
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, navTheme }: LayoutProps) {
   return (
     <>
-      <Navigation />
+      <Navigation theme={navTheme} />
       <main>{children}</main>
       <Footer />
     </>

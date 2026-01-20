@@ -43,15 +43,43 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Text color changes for white background */
+/* Theme: About - solid white background for about page */
+.nav.about {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme: Contact - solid white background for contact page */
+.nav.contact {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Text color changes for white background - applies to .below, .about, and .contact */
 .nav.below .navLeft a,
 .nav.below .brand,
 .nav.below .socialLink,
-.nav.below .menuButton {
+.nav.below .menuButton,
+.nav.about .navLeft a,
+.nav.about .brand,
+.nav.about .socialLink,
+.nav.about .menuButton,
+.nav.contact .navLeft a,
+.nav.contact .brand,
+.nav.contact .socialLink,
+.nav.contact .menuButton {
   color: #000;
 }
 
-.nav.below .menuButton {
+.nav.below .menuButton,
+.nav.about .menuButton,
+.nav.contact .menuButton {
   border: 2px solid #000;
   border-color: #000;
   background: transparent;
@@ -60,29 +88,41 @@
   -webkit-backdrop-filter: none;
 }
 
-.nav.below .ctaButton {
+.nav.below .ctaButton,
+.nav.about .ctaButton,
+.nav.contact .ctaButton {
   background-color: #1a5f7a;
   color: #fff;
 }
 
-.nav.below .ctaButton:hover {
+.nav.below .ctaButton:hover,
+.nav.about .ctaButton:hover,
+.nav.contact .ctaButton:hover {
   background-color: #2a7fa0;
 }
 
-.nav.below .mobileMenu {
+.nav.below .mobileMenu,
+.nav.about .mobileMenu,
+.nav.contact .mobileMenu {
   border-top-color: rgba(0, 0, 0, 0.2);
 }
 
-.nav.below .mobileMenu a {
+.nav.below .mobileMenu a,
+.nav.about .mobileMenu a,
+.nav.contact .mobileMenu a {
   color: #000;
 }
 
-.nav.below .mobileMenu .mobileCtaButton {
+.nav.below .mobileMenu .mobileCtaButton,
+.nav.about .mobileMenu .mobileCtaButton,
+.nav.contact .mobileMenu .mobileCtaButton {
   background-color: #253a4b;
   color: white;
 }
 
-.nav.below .mobileCtaButton:hover {
+.nav.below .mobileCtaButton:hover,
+.nav.about .mobileCtaButton:hover,
+.nav.contact .mobileCtaButton:hover {
   background-color: #1a2d3b;
 }
 
@@ -215,7 +255,9 @@
     0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-.nav.below .menuButton:hover {
+.nav.below .menuButton:hover,
+.nav.about .menuButton:hover,
+.nav.contact .menuButton:hover {
   opacity: 0.7;
   background: transparent;
   box-shadow: none;

@@ -272,7 +272,6 @@ const years = getYearsOfExperience()
 - `components/Navigation.tsx` - Header social links
 - `components/ContactInfo.tsx` - Contact page
 - `components/Accolades.tsx` - LinkedIn recommendations link
-- `components/TestimonialsCarousel.tsx` - LinkedIn link
 
 ### Images
 

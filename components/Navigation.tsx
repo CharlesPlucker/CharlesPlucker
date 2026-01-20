@@ -3,11 +3,20 @@ import { useState, useEffect } from 'react'
 import styles from './Navigation.module.css'
 import { SOCIAL_LINKS } from '../data/contact'
 
-export default function Navigation() {
+interface NavigationProps {
+  theme?: 'homepage' | 'about' | 'contact'
+}
+
+export default function Navigation({ theme = 'homepage' }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollState, setScrollState] = useState<'top' | 'video' | 'below'>('top')
 
   useEffect(() => {
+    // Only track scroll state for homepage theme
+    if (theme !== 'homepage') {
+      return
+    }
+
     const handleScroll = () => {
       const scrollY = window.scrollY
       const heroHeight = window.innerHeight // 100vh
@@ -29,14 +38,19 @@ export default function Navigation() {
 
     // Cleanup
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [theme])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  // Determine nav class based on theme
+  const navClass = theme === 'homepage' 
+    ? `${styles.nav} ${styles[scrollState]}`
+    : `${styles.nav} ${styles[theme]}`
+
   return (
-    <nav className={`${styles.nav} ${styles[scrollState]}`}>
+    <nav className={navClass}>
       <div className={styles.navLeft}>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>

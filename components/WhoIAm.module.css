@@ -3,12 +3,19 @@
   WHO I AM SECTION
   ============================================
   Component-specific styles for the Who I Am section.
-  Uses TwoColumnLayout.module.css for base grid structure.
+  Self-contained with custom top padding to clear fixed navigation.
   ============================================
 */
 
 .whoIAmSection {
   background: var(--background-light);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 4vw 7vw 4vw; /* Top: fixed 140px for nav clearance, Right/Bottom/Left: standard from TwoColumnLayout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
 /* Image column */
@@ -32,6 +39,19 @@
   justify-content: start;
 }
 
+/* Text content styling */
+.textContent h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.textContent p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
 /* CTA Button positioning */
 .ctaButtonContainer {
   margin-top: 2rem;
@@ -39,8 +59,33 @@
   justify-content: flex-start;
 }
 
-/* Responsive adjustments */
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .whoIAmSection {
+    gap: 40px;
+  }
+
+  .textContent h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 750px) {
+  .whoIAmSection {
+    grid-template-columns: 1fr; /* Stack to single column */
+    gap: 30px;
+    padding: 170px 5vw 10vw 5vw; /* Top: fixed 170px for nav clearance, Right/Bottom/Left: standard from TwoColumnLayout mobile */
+  }
+
+  .textContent h2 {
+    font-size: 1.75rem;
+  }
+
+  .textContent p {
+    font-size: 0.95rem;
+  }
+
   .ctaButtonContainer {
     justify-content: center;
     margin-top: 1.5rem;

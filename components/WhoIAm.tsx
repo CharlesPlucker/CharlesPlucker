@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import styles from './WhoIAm.module.css'
-import layoutStyles from './TwoColumnLayout.module.css'
 import CTAButton from './CTAButton'
 
 export default function WhoIAm() {
   return (
-    <section className={`${styles.whoIAmSection} ${layoutStyles.container}`}>
+    <section className={styles.whoIAmSection}>
       <div className={styles.imageColumn}>
         <Image
           src="/images/who-i-am.jpg"
@@ -18,7 +17,7 @@ export default function WhoIAm() {
       </div>
 
       <div className={styles.textColumn}>
-        <div className={layoutStyles.textContent}>
+        <div className={styles.textContent}>
           <h2>Who I Am</h2>
           <p>
             I spent most of my childhood in Belgium where I grew up speaking French. This experience
