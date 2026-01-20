@@ -7,7 +7,7 @@ export default function WhoIAm() {
     <section className={styles.whoIAmSection}>
       <div className={styles.imageColumn}>
         <Image
-          src="/images/who-i-am.jpg"
+          src="/images/who-i-am.webp"
           alt="Charles Plucker"
           width={600}
           height={800}

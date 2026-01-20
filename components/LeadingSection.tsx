@@ -21,7 +21,7 @@ export default function LeadingSection() {
       <div className={styles.leadingContent}>
         <div className={styles.leadingImage}>
           <Image
-            src="/images/leading-from-the-front.jpg"
+            src="/images/leading-from-the-front.webp"
             alt="Charles Plucker"
             width={360}
             height={600}

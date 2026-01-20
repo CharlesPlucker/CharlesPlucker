@@ -355,6 +355,11 @@ I am a **Principal Software Engineer** with over 14 years of experience who:
 **Content:**
 - Add resume PDF to `/public/`
 
+**Performance & UX:**
+- Optimize image response size
+- Loading effects upon scrolling
+- New scroll animation in Carousels
+
 **Philosophy:** Optimize for helping the *right* people find me, not maximum traffic
 
 ---

@@ -20,7 +20,7 @@
   height: 100%;
   overflow: hidden;
   z-index: 0;
-  background-image: url('/images/contact-hero.jpg');
+  background-image: url('/images/contact-hero.webp');
   background-size: cover;
   background-position: center;
 }

@@ -33,7 +33,7 @@ export default function StopDoingStartBeing({
       <div className={styles.container}>
         <div className={styles.imageColumn}>
           <Image
-            src="/images/stop-doing-start-being.jpg"
+            src="/images/stop-doing-start-being.webp"
             alt="Team collaboration"
             width={600}
             height={700}
