@@ -24,7 +24,7 @@ export default function WhoIAm() {
             I spent most of my childhood in Belgium where I grew up speaking French. This experience has taught me to see the world in many different perspectives.
           </p>
           <p>
-            I became fascinated with programming in College and graduated from the University of Virginia with a BS in Computer Science in 2010. I have been working professionally writing high quality software ever since.
+            I became fascinated with programming in College and graduated from the University of Virginia with a BS in Computer Science in 2010. I have been working professionally writing high-quality software ever since.
           </p>
           <p>
             I like to make the distinction between being a Computer Scientist and being a Software Engineer. In the former, we focus on perfect code and perfect run times. In the other we make compromises so that a business can thrive. MVPs excite me more than a long planning pipeline.
