@@ -40,22 +40,27 @@ ORIGINAL_SIZE=$(du -h "$INPUT_VIDEO" | cut -f1)
 echo "📹 Input video: background.mp4"
 echo "📊 Original size: $ORIGINAL_SIZE"
 echo ""
-echo "⚙️  Encoding with H.265 (HEVC)..."
-echo "   Codec: libx265"
-echo "   CRF: 28 (high quality)"
+echo "⚙️  Encoding with H.264..."
+echo "   Codec: libx264"
+echo "   CRF: 23 (high quality)"
 echo "   Preset: slow (better compression)"
+echo "   Profile: high (best compatibility)"
 echo ""
 
 # Run ffmpeg optimization
-# -c:v libx265: Use H.265 codec
-# -crf 28: Constant Rate Factor (lower = better quality, 28 is high quality)
+# -c:v libx264: Use H.264 codec (universal browser support)
+# -crf 23: Constant Rate Factor (lower = better quality, 23 is high quality)
 # -preset slow: Slower encoding for better compression
+# -profile:v high: High profile for best quality/compression balance
+# -pix_fmt yuv420p: Ensures compatibility with all browsers
 # -an: No audio (remove audio track)
 # -movflags +faststart: Optimize for web streaming
 ffmpeg -i "$INPUT_VIDEO" \
-  -c:v libx265 \
-  -crf 28 \
+  -c:v libx264 \
+  -crf 23 \
   -preset slow \
+  -profile:v high \
+  -pix_fmt yuv420p \
   -an \
   -movflags +faststart \
   -y \
