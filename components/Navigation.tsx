@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import styles from './Navigation.module.css'
 import { SOCIAL_LINKS } from '../data/contact'
+import CTAButton from './CTAButton'
 
 interface NavigationProps {
   theme?: 'homepage' | 'about' | 'contact'
@@ -105,9 +106,12 @@ export default function Navigation({ theme = 'homepage' }: NavigationProps) {
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <Link href="/contact" className={styles.ctaButton}>
-          Get In Touch
-        </Link>
+        <CTAButton 
+          href="/contact" 
+          variant="primary"
+          theme="navigation"
+          text="Get In Touch"
+        />
       </div>
 
       {/* Mobile Menu Button */}
@@ -196,13 +200,14 @@ export default function Navigation({ theme = 'homepage' }: NavigationProps) {
           </svg>
           <span>LinkedIn</span>
         </a>
-        <Link
+        <CTAButton
           href="/contact"
-          onClick={() => setIsMenuOpen(false)}
+          variant="primary"
+          theme="light"
+          text="Get In Touch"
           className={styles.mobileCtaButton}
-        >
-          Get In Touch
-        </Link>
+          onClick={() => setIsMenuOpen(false)}
+        />
       </div>
     </nav>
   )

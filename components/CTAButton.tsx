@@ -2,12 +2,17 @@ import Link from 'next/link'
 import styles from './CTAButton.module.css'
 
 interface CTAButtonProps {
-  text: string
-  href: string
+  text?: string
+  href?: string
   className?: string
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'outline'
+  theme?: 'light' | 'dark' | 'navigation'
   external?: boolean
   download?: boolean
+  onClick?: () => void
+  children?: React.ReactNode
+  type?: 'button' | 'submit'
+  disabled?: boolean
 }
 
 export default function CTAButton({
@@ -15,15 +20,34 @@ export default function CTAButton({
   href,
   className = '',
   variant = 'primary',
+  theme = 'light',
   external = false,
   download = false,
+  onClick,
+  children,
+  type = 'button',
+  disabled = false,
 }: CTAButtonProps) {
+  // Build className with CSS module styles
+  const baseClassName = `${styles.button} ${styles[variant]} ${styles[theme]} ${className}`.trim()
+
+  // If no href, render as button
+  if (!href) {
+    return (
+      <button
+        onClick={onClick}
+        className={baseClassName}
+        type={type}
+        disabled={disabled}
+      >
+        {children || text}
+      </button>
+    )
+  }
+
   // Auto-detect external links
   const isExternal = external || href.startsWith('http')
   const isDownload = download || href.match(/\.(pdf|doc|docx)$/i)
-
-  // Build className with CSS module styles
-  const baseClassName = `${styles.button} ${styles[variant]} ${className}`.trim()
 
   // External or download links use regular <a> tag
   if (isExternal || isDownload) {
@@ -34,16 +58,17 @@ export default function CTAButton({
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
         download={isDownload ? true : undefined}
+        onClick={onClick}
       >
-        {text}
+        {children || text}
       </a>
     )
   }
 
   // Internal links use Next.js Link
   return (
-    <Link href={href} className={baseClassName}>
-      {text}
+    <Link href={href} className={baseClassName} onClick={onClick}>
+      {children || text}
     </Link>
   )
 }

@@ -1,34 +1,87 @@
 /* 
  * CTAButton Component Styles
- * Self-contained button component with primary and secondary variants
+ * Self-contained button component with primary, secondary, and outline variants
+ * Supports light, dark, and navigation themes
  */
 
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 1.125rem 2.5rem;
   text-decoration: none;
   border-radius: 50px;
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
   transition:
     background-color 0.3s ease,
+    border-color 0.3s ease,
     transform 0.2s ease;
 }
 
 .button:hover {
-  transform: translateY(-2px);
   text-decoration: none;
 }
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button svg {
+  flex-shrink: 0;
+}
+
+/* =================================================================
+   THEMES - Control overall button appearance and behavior
+   ================================================================= */
+
+/* Light theme - Default, for light backgrounds */
+.light {
+  border-radius: 50px;
+}
+
+.light:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark theme - For dark backgrounds (footer, dark sections) */
+.dark {
+  border-radius: 50px;
+}
+
+.dark:hover {
+  transform: translateY(-2px);
+}
+
+/* Navigation theme - Compact style for navigation bars */
+.navigation {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.navigation:hover {
+  transform: none; /* No float effect */
+}
+
+/* =================================================================
+   VARIANTS - Control color scheme
+   ================================================================= */
 
 /* Primary variant - Blue background */
 .primary {
   background-color: #253a4b;
   color: white;
-}
-
-.primary:hover {
-  background-color: #1a2d3b;
 }
 
 /* Secondary variant - White background */
@@ -37,8 +90,54 @@
   color: #2c3e50;
 }
 
-.secondary:hover {
-  background-color: #e8e8e8;
+/* Outline variant - White background with blue border */
+.outline {
+  background: white;
+  color: var(--primary-bg, #253a4b);
+  border: 2px solid var(--primary-bg, #253a4b);
+}
+
+/* =================================================================
+   THEME + VARIANT COMBINATIONS - Hover states
+   ================================================================= */
+
+/* Light theme hover states - Buttons get lighter/darker */
+.light.primary:hover {
+  background-color: #3d5769; /* Lighter blue */
+}
+
+.light.secondary:hover {
+  background-color: #d5d5d5; /* Darker gray */
+}
+
+.light.outline:hover {
+  background: #e0e0e0; /* Darker gray background */
+}
+
+/* Dark theme hover states - Similar to light but optimized for dark backgrounds */
+.dark.primary:hover {
+  background-color: #3d5769; /* Lighter blue */
+}
+
+.dark.secondary:hover {
+  background-color: #d5d5d5; /* Darker gray */
+}
+
+.dark.outline:hover {
+  background: #e0e0e0; /* Darker gray background */
+}
+
+/* Navigation theme hover states - Darkens instead of lightens */
+.navigation.primary:hover {
+  background-color: #1a2d3b; /* Darker blue - original nav behavior */
+}
+
+.navigation.secondary:hover {
+  background-color: #e8e8e8; /* Slightly darker */
+}
+
+.navigation.outline:hover {
+  background-color: #f5f5f5; /* Slight gray */
 }
 
 /* Mobile responsive - full width on small screens */

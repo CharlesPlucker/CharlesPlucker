@@ -75,50 +75,8 @@
   flex-wrap: wrap;
 }
 
-.copyButton,
-.emailButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.emailActionButton {
   padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: 50px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  font-family: inherit;
-}
-
-.copyButton {
-  background: white;
-  color: var(--primary-bg, #253a4b);
-  border: 2px solid var(--primary-bg, #253a4b);
-}
-
-.copyButton:hover {
-  background: var(--primary-bg, #253a4b);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.copyButton:active {
-  transform: translateY(0);
-}
-
-.emailButton {
-  background: var(--primary-bg, #253a4b);
-  color: white;
-}
-
-.emailButton:hover {
-  background: var(--primary-hover, #1a2d3b);
-  transform: translateY(-2px);
-}
-
-.emailButton:active {
-  transform: translateY(0);
 }
 
 /* Primary Actions */
@@ -129,34 +87,9 @@
   margin-bottom: 3rem;
 }
 
-.primaryButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.primaryActionButton {
   padding: 18px 32px;
   font-size: 1.05rem;
-  font-weight: 400;
-  background: var(--primary-bg, #253a4b);
-  color: white;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: none;
-}
-
-.primaryButton:hover {
-  background: var(--primary-hover, #1a2d3b);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 58, 75, 0.2);
-}
-
-.primaryButton:active {
-  transform: translateY(0);
-}
-
-.primaryButton svg {
-  flex-shrink: 0;
 }
 
 /* Disclaimer */
@@ -203,19 +136,12 @@
     width: 100%;
   }
 
-  .copyButton,
-  .emailButton {
-    width: 100%;
-    justify-content: center;
-  }
-
   .primaryActions {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .primaryButton {
-    width: 100%;
+  .primaryActionButton {
     padding: 16px 20px;
     font-size: 1rem;
   }

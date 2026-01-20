@@ -94,7 +94,8 @@
 }
 
 .navButton:hover {
-  background-color: #1a2d3b;
+  background-color: #3d5769; /* Lighter blue */
+  text-decoration: none;
 }
 
 .navButton:disabled {

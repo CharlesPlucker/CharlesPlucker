@@ -88,18 +88,7 @@
   -webkit-backdrop-filter: none;
 }
 
-.nav.below .ctaButton,
-.nav.about .ctaButton,
-.nav.contact .ctaButton {
-  background-color: #253a4b;
-  color: #fff;
-}
-
-.nav.below .ctaButton:hover,
-.nav.about .ctaButton:hover,
-.nav.contact .ctaButton:hover {
-  background-color: #1a2d3b;
-}
+/* CTA Button colors now handled by CTAButton component */
 
 .nav.below .mobileMenu,
 .nav.about .mobileMenu,
@@ -113,18 +102,7 @@
   color: #000;
 }
 
-.nav.below .mobileMenu .mobileCtaButton,
-.nav.about .mobileMenu .mobileCtaButton,
-.nav.contact .mobileMenu .mobileCtaButton {
-  background-color: #253a4b;
-  color: white;
-}
-
-.nav.below .mobileCtaButton:hover,
-.nav.about .mobileCtaButton:hover,
-.nav.contact .mobileCtaButton:hover {
-  background-color: #1a2d3b;
-}
+/* Mobile menu button colors now handled by CTAButton component */
 
 /* Mobile menu styles for "top" state */
 .nav.top .mobileMenu {
@@ -133,15 +111,6 @@
 
 .nav.top .mobileMenu a {
   color: #000;
-}
-
-.nav.top .mobileMenu .mobileCtaButton {
-  background-color: #253a4b;
-  color: white;
-}
-
-.nav.top .mobileCtaButton:hover {
-  background-color: #1a2d3b;
 }
 
 .navLeft {
@@ -209,21 +178,7 @@
   height: 20px;
 }
 
-.ctaButton {
-  background-color: #253a4b;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.ctaButton:hover {
-  background-color: #1a2d3b;
-  text-decoration: none;
-}
+/* CTA Button styling now handled by CTAButton component */
 
 .menuButton {
   display: none;
@@ -295,23 +250,8 @@
 }
 
 .mobileCtaButton {
-  display: inline-block;
-  padding: 0.875rem 2rem;
-  background-color: #253a4b;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: background-color 0.3s ease;
-  text-align: center;
   margin-top: 0.1rem;
   align-self: flex-start;
-}
-
-.mobileCtaButton:hover {
-  background-color: #1a2d3b;
-  text-decoration: none;
 }
 
 .mobileMenu.open {
